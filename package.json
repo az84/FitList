@@ -1,0 +1,30 @@
+{
+  "name": "workout",
+  "version": "1.0.0",
+  "description": "<!---USER STORY--->\r As a user I want to sign in to an app that stores and tracks fitness goals.\r As a user I want to be able to save my own fitness routines, or select something\r from a pre formed list.\r As a user I want to track what excercises I do during a day, or set reminders (some sort of calendar function)\r As a user I want the app to build and securely save my profile (including what I did, when, reps, set, etc.)\r As a user I want to be able to add notes or comments to the stuff somewhere in the app (maybe).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/az84/Project-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/az84/Project-2/issues"
+  },
+  "homepage": "https://github.com/az84/Project-2#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "mysql2": "^2.3.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.6.5"
+  }
+}

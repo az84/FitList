@@ -1,5 +1,5 @@
 {
-  "name": "workout",
+  "name": "Project-2",
   "version": "1.0.0",
   "description": "<!---USER STORY--->\r As a user I want to sign in to an app that stores and tracks fitness goals.\r As a user I want to be able to save my own fitness routines, or select something\r from a pre formed list.\r As a user I want to track what excercises I do during a day, or set reminders (some sort of calendar function)\r As a user I want the app to build and securely save my profile (including what I did, when, reps, set, etc.)\r As a user I want to be able to add notes or comments to the stuff somewhere in the app (maybe).",
   "main": "server.js",

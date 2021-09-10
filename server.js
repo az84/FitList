@@ -7,6 +7,8 @@ const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const passport = require('passport');
+const flash = require('connect-flash');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,6 +35,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+// Passport.js Authentication
+app.use(session({ secret: 'Super secret secret' }));
+app.use(passport.initialize());
+app.use(passport.session({ cookie: { maxAge: 60000 } }));
+app.use(flash());
+require('./config/passport');
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+// Routes
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app, passport);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

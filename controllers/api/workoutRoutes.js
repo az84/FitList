@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const { User, Workout } = require('../../models');
-//const withAuth = require('../../utils/auth');
 
-
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
 	Workout.create({
         //stuff!
 	}).then(workoutData => res.json(workoutData)).catch(err => {
@@ -12,12 +10,10 @@ router.post('/', withAuth, (req, res) => {
 	});
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
 	try {
 		const WorkoutData = await Workout.destroy({
-			where: {
-                    //stuff!
-			}
+			where: {id: req.params.id}
 		});
 		if (!WorkoutData) {
 			res.status(404).json({ message: 'No Workout found with this id!'});
@@ -29,7 +25,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 	}
 });
 
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
 	try {
 		const workout = await Workout.update({
                 // Stuff!

@@ -2,13 +2,13 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class workout extends user {
+class Workout extends user {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-workout.init(
+Workout.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -31,13 +31,11 @@ workout.init(
     sets: {
       type: DataTypes.integer,
       allowNull: false,
-    
       },
-    },
     reps: {
       type: DataTypes.STRING,
       allowNull: false,
-    
+    },
   },
   {
     hooks: {
@@ -50,8 +48,8 @@ workout.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'workout',
   }
 );
 
-module.exports = User;
+module.exports = Workout;

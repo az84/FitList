@@ -39,7 +39,7 @@ app.use(routes);
 //Passport.js Authentication
 app.use(session({ secret: 'Super secret secret', 
                   name: 'project_2',
-                  store: sessionStore,
+                  cookie: { secure: true },
                   proxy: true, 
                   resave: true, 
                   saveUninitialized: true  
@@ -58,8 +58,8 @@ passport.deserializeUser((user, done) => {
 });
 
 // Routes
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app, passport);
+// require('./routes/apiRoutes')(app);
+// require('./routes/htmlRoutes')(app, passport);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

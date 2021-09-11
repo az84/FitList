@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css" />
+    <title>Tech Blog</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+    <header>
+      <h1>WorkoutDB</h1>
+    </header>
+
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-start">
+      <a href="/">Home</a>
+      {{#if loggedin}}
+        <a class="nav-link" href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-dark">Logout</button>
+      {{else}}
+        <a class="nav-link" href="/login">Login</a>
+      {{/if}}
+    </nav>
+    <main>
+      {{{body}}}
+    </main>
+    {{#if loggedin}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+    </div>
+  </body>
+
+</html>

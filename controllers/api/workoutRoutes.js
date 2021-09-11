@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Workout } = require('../../models');
 
-router.post('/', (req, res) => {
+router.post('/', (req, res) => { // post route for Creating new workout
 	Workout.create({
         //stuff!
 	}).then(workoutData => res.json(workoutData)).catch(err => {
@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
 	});
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => { //Delete route to delete a workout
 	try {
 		const WorkoutData = await Workout.destroy({
 			where: {id: req.params.id}
@@ -25,7 +25,7 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => { // put Route to update workout
 	try {
 		const workout = await Workout.update({
                 // Stuff!

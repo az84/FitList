@@ -1,0 +1,33 @@
+[
+    {
+      "workout_name": "Sal",
+      "excercise": "excercise!",
+      "sets": "4",
+      "reps": "12"
+    },
+    {
+      "workout_name": "Lernantino",
+      "excercise": "excercise?",
+      "sets": "5",
+      "reps": "15"
+    },
+    {
+      "workout_name": "Amiko!",
+      "excercise": "excercise!?",
+      "sets": "3",
+      "reps": "10"
+    },
+    {
+      "workout_name": "Jordan",
+      "excercise": "excercise!?!",
+      "sets": "5",
+      "reps": "12"
+    },
+    {
+      "workout_name": "Blake",
+      "excercise": "not a excercise",
+      "sets": "2",
+      "reps": "20"
+    }
+  ]
+  

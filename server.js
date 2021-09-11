@@ -36,8 +36,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-// Passport.js Authentication
-app.use(session({ secret: 'Super secret secret' }));
+//Passport.js Authentication
+app.use(session({ secret: 'Super secret secret', 
+                  name: 'project_2',
+                  store: sessionStore,
+                  proxy: true, 
+                  resave: true, 
+                  saveUninitialized: true  
+}));
 app.use(passport.initialize());
 app.use(passport.session({ cookie: { maxAge: 60000 } }));
 app.use(flash());

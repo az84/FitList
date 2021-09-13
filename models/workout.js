@@ -19,14 +19,11 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
     sets: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      },
+    },
     reps: {
       type: DataTypes.STRING,
       allowNull: false,

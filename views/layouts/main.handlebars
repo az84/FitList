@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,7 @@
     <h1>
       User Registry
     </h1>
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <nav>
       <button class="btn" id="logout">logout</button>
     </nav>
@@ -27,8 +26,8 @@
       
   </footer>
 
-  {{#if logged_in}}
-  <script src="/public/logout.js"></script>
+  {{#if loggedIn}}
+  <script src="./logout.js"></script>
   {{/if}}
 </body>
 

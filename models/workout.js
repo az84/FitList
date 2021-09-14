@@ -26,7 +26,6 @@ Workout.init(
     exercise: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     sets: {
       type: DataTypes.INTEGER,

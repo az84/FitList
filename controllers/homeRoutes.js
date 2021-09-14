@@ -5,14 +5,11 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     const workoutData = await Workout.findAll({
-			include: [
-				{
+					include: {
 						model: User,
 						attributes: ['username', 'id']
-				},
-			]
+					}
 		});
-    //console.log("workoutdata", workoutData);
 
     const workouts = workoutData.map((workout) => workout.get({ plain: true }));
     //console.log("workouts", workouts);

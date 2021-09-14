@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.userId = newUser.id;
+      req.session.user_Id = newUser.id;
       req.session.username = newUser.username;
       req.session.loggedIn = true;
       res.status(200).json(newUser);
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
-
+    
     if (!userData) {
       res
         .status(400)
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_Id = userData.id;
       req.session.loggedIn = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
@@ -55,9 +55,11 @@ router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
+      document.location.replace('/login');
     });
   } else {
     res.status(404).end();
+    document.location.replace('/login');
   }
 });
 

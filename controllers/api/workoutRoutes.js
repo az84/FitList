@@ -1,11 +1,19 @@
 const router = require('express').Router();
 const { User, Workout } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', (req, res) => { // post route for Creating new workout
+router.post('/', withAuth, (req, res) => { // post route for Creating new workout
+	console.log("req.body", req.body);
+	console.log("req.session.user_Id", req.session.user_Id);
 	Workout.create({
-        //stuff!
+		workout_name: req.body.workoutName,
+		excercise: req.body.excercise,
+		sets: req.body.sets,
+		reps: req.body.reps,
+		user_id: req.session.user_Id
 	}).then(workoutData => res.json(workoutData)).catch(err => {
 		console.log(err);
+		console.log("workoutData", workoutData);
 		res.status(500).json(err);
 	});
 });

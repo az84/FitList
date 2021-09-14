@@ -4,16 +4,21 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      //order: [['name', 'ASC']],
-      //include: [{model: Workout}],
-    });
+    const workoutData = await Workout.findAll({
+			include: [
+				{
+						model: User,
+						attributes: ['username', 'id']
+				},
+			]
+		});
+    //console.log("workoutdata", workoutData);
 
-    const users = userData.map((user) => user.get({ plain: true }));
-
+    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+    //console.log("workouts", workouts);
+    
     res.render('homepage', {
-      users,
+      workouts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -37,6 +42,17 @@ router.get('/signup', (req, res) => {
   }
 
   res.render('signup');
+});
+
+router.get('/test', (req, res) => {
+	if (req.session.loggedin) {
+		res.redirect('/test');
+		return;
+	}
+  res.render('test', {
+		loggedin: req.session.loggedin,
+    User_Id: req.session.user_Id
+	});
 });
 
 module.exports = router;

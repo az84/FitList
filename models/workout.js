@@ -11,6 +11,14 @@ Workout.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
     workout_name: {
       type: DataTypes.STRING,
       allowNull: false,

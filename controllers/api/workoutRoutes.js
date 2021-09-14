@@ -7,7 +7,7 @@ router.post('/', withAuth, (req, res) => { // post route for Creating new workou
 	console.log("req.session.user_Id", req.session.user_Id);
 	Workout.create({
 		workout_name: req.body.workoutName,
-		excercise: req.body.excercise,
+		exercise: req.body.exercise,
 		sets: req.body.sets,
 		reps: req.body.reps,
 		user_id: req.session.user_Id

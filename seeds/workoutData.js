@@ -1,4 +1,6 @@
-[
+const { Workout } = require('../models');
+
+const workoutData = [
     {
       "workout_name": "pushups",
       "excercise": "excercise!",
@@ -29,5 +31,9 @@
       "sets": "2",
       "reps": "20"
     }
-  ]
+  ];
+
+  const seedWorkout = () => Workout.bulkCreate(workoutData);
+
+  module.exports = seedWorkout;
   

@@ -1,12 +1,11 @@
 const User = require('./User');
 const Workout = require('./Workout');
 
-
-User.hasMany(Workout, {
+Workout.belongsTo(User, {
 
 });
 
-Workout.belongsTo(User, {
+User.hasMany(Workout, {
 
 });
 

@@ -2,32 +2,32 @@ const { Workout } = require('../models');
 
 const workoutData = [
     {
-      "workout_name": "pushups",
-      "excercise": "excercise!",
+      "workout_name": "Monday Set",
+      "excercise": "squats",
       "sets": "4",
       "reps": "12"
     },
     {
-      "workout_name": "situps",
-      "excercise": "excercise?",
+      "workout_name": "Tuesday Set",
+      "excercise": "planks",
       "sets": "5",
       "reps": "15"
     },
     {
-      "workout_name": "crunches",
-      "excercise": "excercise!?",
+      "workout_name": "Thursday Set",
+      "excercise": "pushups",
       "sets": "3",
       "reps": "10"
     },
     {
-      "workout_name": "chin ups",
-      "excercise": "excercise!?!",
+      "workout_name": "Friday Set",
+      "excercise": "chinups",
       "sets": "5",
       "reps": "12"
     },
     {
-      "workout_name": "squats",
-      "excercise": "not a excercise",
+      "workout_name": "Saturday Set",
+      "excercise": "situps",
       "sets": "2",
       "reps": "20"
     }

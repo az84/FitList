@@ -1,14 +1,19 @@
-const seedUser = require('./userData');
-const seedWorkout= require('./workoutData');
-
-
 const sequelize = require('../config/connection');
+const { User, Workout } = require('../models');
+const userData = require('./userData.js');
+const workoutData = require('./workoutData.js');
 
-const seedAll = async() => {
+const seedDatabase = async () => {
   await sequelize.sync({ force: true });
-  await seedUser();
-  await seedWorkout();
+
+  await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  await Workout.bulkCreate(workoutData, {});
+
   process.exit(0);
 };
 
-seedAll();
+seedDatabase();

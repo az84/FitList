@@ -23,10 +23,9 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    excercise: {
+    exercise: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     sets: {
       type: DataTypes.INTEGER,

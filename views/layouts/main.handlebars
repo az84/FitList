@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registry</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1>
+      User Registry
+    </h1>
+    {{#if loggedIn}}
+    <nav>
+      <a class="nav-link" href="/test">new Workout</a>
+      <button class="btn" id="logout">logout</button>
+    </nav>
+    {{/if}}
+  </header>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+  </main>
+  <footer>
+      
+  </footer>
+
+  {{#if loggedIn}}
+  <script src="./logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

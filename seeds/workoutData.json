@@ -1,0 +1,38 @@
+[
+    {
+      "workout_name": "Bar",
+      "user_id": "3",
+      "excercise": "Shoulder Press",
+      "sets": "4",
+      "reps": "12"
+    },
+    {
+      "workout_name": "Body",
+      "user_id": "2",
+      "excercise": "jump rope",
+      "sets": "5",
+      "reps": "15"
+    },
+    {
+      "workout_name": "Dumbbells",
+      "user_id": "1",
+      "excercise": "Arnold Press",
+      "sets": "3",
+      "reps": "10"
+    },
+    {
+      "workout_name": "Dumbbells!",
+      "user_id": "1",
+      "excercise": "Bicep Curl",
+      "sets": "5",
+      "reps": "12"
+    },
+    {
+      "workout_name": "core?",
+      "user_id": "2",
+      "excercise": "crunch",
+      "sets": "2",
+      "reps": "20"
+    }
+  ]
+  

@@ -1,0 +1,22 @@
+
+  {{#each workout.exercises as |exercise|}}
+  {{log 'this' this}}
+<div class="col-sm-6">
+    <div class="card">
+      <h5 class="card-header">{{this.name}}</h5>
+      <div class="card-body">
+        <ul class="list-group list-group-flush"></ul>
+         {{#if equipment}} <li class="list-group-item">{{equipment}}</li>{{/if}}
+         {{#if type}} <li class="list-group-item">{{type}}</li>{{/if}}
+         {{#if muscle}} <li class="list-group-item">{{muscle}}</li>{{/if}}
+         {{#if sets}} <li class="list-group-item">{{sets}}</li>{{/if}}
+         {{#if reps}} <li class="list-group-item">{{reps}}</li>{{/if}}
+         {{#if weight}} <li class="list-group-item">{{weight}}</li>{{/if}}
+         {{#if distance}} <li class="list-group-item">{{distance}}</li>{{/if}}
+         {{#if duration}} <li class="list-group-item">{{duration}}</li>{{/if}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+

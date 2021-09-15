@@ -1,16 +1,22 @@
 const router = require('express').Router();
-const { Workout } = require('../../models');
+const { Workout, WorkoutExercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, (req, res) => { // post route for Creating new workout
 	console.log("req.body", req.body);
 	console.log("req.session.user_Id", req.session.user_Id);
 	Workout.create({
+		user_id: req.session.user_Id,
 		workout_name: req.body.workoutName,
-		exercise: req.body.exercise,
+		name: req.body.name,
+		equipment: req.body.equipment,
+		type: req.body.type,
+		muscle: req.body.muscle,
 		sets: req.body.sets,
 		reps: req.body.reps,
-		user_id: req.session.user_Id
+		weight: req.body.weight,
+		distance: req.body.distance,
+		duration: req.body.duration
 	}).then(workoutData => res.json(workoutData)).catch(err => {
 		console.log(err);
 		console.log("workoutData", workoutData);

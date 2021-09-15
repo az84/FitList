@@ -1,0 +1,26 @@
+
+<div class="table-responsive-xl d-grid gap-5">
+<table class="table table-striped table-dark table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col-xl">Workout Name</th> 
+      <th scope="col">excercise</th>
+      <th scope="col-sm">sets</th>
+      <th scope="col-sm">reps</th>
+    </tr>
+    {{log 'workouts' workouts}}
+  </thead>
+     {{#each workouts as |workout| }}
+ {{!--    {{log 'workout' workout}} --}}
+  <tbody class="">
+    <tr class="">
+      <th class="row" scope="row"><div class="col-9"></div>
+      <div class="col-4"></div></th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+</div>

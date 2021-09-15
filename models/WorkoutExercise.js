@@ -31,7 +31,7 @@ WorkoutExercise.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'workoutexercise',
+    modelName: 'workoutexercise', //workout_exercise ??
   }
 );
 

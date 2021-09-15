@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Workout } = require('../../models');
+const { Workout } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, (req, res) => { // post route for Creating new workout

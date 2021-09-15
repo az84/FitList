@@ -1,14 +1,49 @@
 [
     {
-      "name": "Bar",
-      "equipment": "barbells",
+      "name": "Exercise 1",
+      "equipment": "Barbell",
       "type": "Hammer Curl",
       "muscle": "Arms",
       "sets": "5",
       "reps": "10",
       "weight": "20",
-      "distance": "5",
-      "duration": "10"
-    }
-  ]
+      "distance": "0",
+      "duration": "0"
+    },
+    {
+      "name": "Exercise 2",
+      "equipment": "Bench",
+      "type": "Bench press",
+      "muscle": "Arms and Chest",
+      "sets": "6",
+      "reps": "15",
+      "weight": "50",
+      "distance": "0",
+      "duration": "0"
+    },
+    {
+      "name": "Exercise 3",
+      "equipment": "Dumbell",
+      "type": "Dumbell Press",
+      "muscle": "chest",
+      "sets": "7",
+      "reps": "20",
+      "weight": "25",
+      "distance": "0",
+      "duration": "0"
+    },
+    {      
+      "name": "Exercise 4",
+      "equipment": "Treadmill",
+      "type": "Cooldown",
+      "muscle": "0",
+      "sets": "0",
+      "reps": "0",
+      "weight": "0",
+      "distance": "3",
+      "duration": "40"
+  }
+
+    
+]
   

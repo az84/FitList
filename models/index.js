@@ -21,4 +21,4 @@ User.hasMany(Workout, {
   foreignKey: 'user_id',
 });
 
-module.exports = { User, Workout, Exercise };
+module.exports = { User, Workout, Exercise, WorkoutExercise };

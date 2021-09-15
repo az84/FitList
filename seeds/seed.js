@@ -1,7 +1,8 @@
 const sequelize = require('../config/connection');
-const { User, Workout } = require('../models');
+const { User, Workout, Exercise } = require('../models');
 const userData = require('./userData.json');
 const workoutData = require('./workoutData.json');
+const exerciseData = require('./exerciseData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,6 +13,8 @@ const seedDatabase = async () => {
   });
 
   await Workout.bulkCreate(workoutData, {});
+
+  await Exercise.bulkCreate(exerciseData, {});
 
   process.exit(0);
 };

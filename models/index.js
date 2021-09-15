@@ -1,6 +1,6 @@
 const User = require('./User');
 const Workout = require('./Workout');
-const Exercise = require('./Exercise');
+const Exercise = require('./exercise');
 const WorkoutExercise = require('./WorkoutExercise');
 
 Workout.belongsToMany(Exercise, {

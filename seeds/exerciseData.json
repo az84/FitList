@@ -1,0 +1,14 @@
+[
+    {
+      "name": "Bar",
+      "equipment": "barbells",
+      "type": "Hammer Curl",
+      "muscle": "Arms",
+      "sets": "5",
+      "reps": "10",
+      "weight": "20",
+      "distance": "5",
+      "duration": "10"
+    }
+  ]
+  

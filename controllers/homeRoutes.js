@@ -1,27 +1,65 @@
 const router = require('express').Router();
-const { User, Workout } = require('../models');
+const { User, Workout, Exercise, WorkoutExercise } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
     const workoutData = await Workout.findAll({
-					include: {
-						model: User,
-						attributes: ['username', 'id']
-					}
-		});
+        include: [
+          {
+            model: Exercise,
+            through: WorkoutExercise,
+          },
+          {
+            model: User,
+            attributes: ['username', 'id']
+          }
+        ]
+      });
 
     const workouts = workoutData.map((workout) => workout.get({ plain: true }));
-    //console.log("workouts", workouts);
+    console.log("workouts", workouts);
     
     res.render('homepage', {
       workouts,
       loggedIn: req.session.loggedIn,
+      currentUser: req.session.username,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    const workoutData = await Workout.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['username', 'id'],
+            where: { id: req.session.user_Id }
+          },
+          {
+            model: Exercise,
+            through: WorkoutExercise,
+          }
+        ]
+      });
+
+    const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+    console.log("workouts", workouts);
+    
+    res.render('profile', {
+      workouts,
+      loggedIn: req.session.loggedIn,
+      User_Id: req.session.user_Id,
+      currentUser: req.session.username,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -41,11 +79,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/test', (req, res) => {
-	if (req.session.loggedin) {
-		res.redirect('/test');
-		return;
-	}
+router.get('/test', async (req, res) => {
   res.render('test', {
 		loggedin: req.session.loggedin,
     User_Id: req.session.user_Id

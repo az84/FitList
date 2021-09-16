@@ -8,7 +8,8 @@ router.post('/', withAuth, (req, res) => { // post route for Creating new workou
 	Workout.create({
 		user_id: req.session.user_Id,
 		workout_name: req.body.workoutName,
-		name: req.body.name,
+		name: req.body.name, // exercise name\
+		category: req.body.category,
 		equipment: req.body.equipment,
 		type: req.body.type,
 		muscle: req.body.muscle,

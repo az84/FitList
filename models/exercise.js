@@ -15,6 +15,10 @@ Exercise.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    category	: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     equipment	: {
       type: DataTypes.STRING,
       allowNull: true,

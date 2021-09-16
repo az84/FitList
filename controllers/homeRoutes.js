@@ -16,10 +16,8 @@ router.get('/', withAuth, async (req, res) => {
           }
         ]
       });
-
     const workouts = workoutData.map((workout) => workout.get({ plain: true }));
     //console.log("workouts", workouts);
-    
     res.render('homepage', {
       workouts,
       loggedIn: req.session.loggedIn,
@@ -41,7 +39,7 @@ router.get('/profile', withAuth, async (req, res) => {
           },
           {
             model: Exercise,
-            attributes: ['name', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight',
+            attributes: ['name', 'category', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight',
               'distance', 'duration', 'sets', 'reps'],
             through: WorkoutExercise,
           }
@@ -84,7 +82,8 @@ router.get('/signup', (req, res) => {
 router.get('/createworkout', async (req, res) => {
   res.render('createworkout', {
 		loggedin: req.session.loggedin,
-    User_Id: req.session.user_Id
+    User_Id: req.session.user_Id,
+    currentUser: req.session.username,
 	});
 });
 

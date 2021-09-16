@@ -87,7 +87,7 @@ router.get('/createworkout', withAuth, async (req, res) => {
       const exercises = exerciseData.map(exercise => exercise.get({ plain: true }));
       res.render('createworkout', {
         exercises,
-        loggedin: req.session.loggedin,
+        loggedIn: req.session.loggedIn,
         User_Id: req.session.user_Id,
         currentUser: req.session.username,
       });

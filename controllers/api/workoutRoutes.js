@@ -1,13 +1,20 @@
 const router = require('express').Router();
-const { Workout, WorkoutExercise } = require('../../models');
+const { Workout, Exercise, WorkoutExercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, (req, res) => { // post route for Creating new workout
+router.post('/', withAuth, async (req, res) => { // post route for Creating new workout
 	console.log("req.body", req.body);
 	console.log("req.session.user_Id", req.session.user_Id);
 	Workout.create({
 		user_id: req.session.user_Id,
 		workout_name: req.body.workoutName,
+		date: req.body.date
+	}).then(workoutData => res.json(workoutData)).catch(err => {
+		console.log(err);
+		res.status(500).json(err);
+	});
+	
+	Exercise.create({
 		name: req.body.name, // exercise name\
 		category: req.body.category,
 		equipment: req.body.equipment,
@@ -18,11 +25,12 @@ router.post('/', withAuth, (req, res) => { // post route for Creating new workou
 		weight: req.body.weight,
 		distance: req.body.distance,
 		duration: req.body.duration
-	}).then(workoutData => res.json(workoutData)).catch(err => {
+	}).then(exerciseData => res.json(exerciseData)).catch(err => {
 		console.log(err);
-		console.log("workoutData", workoutData);
+		console.log("exerciseData!", exerciseData);
 		res.status(500).json(err);
 	});
+
 });
 
 router.delete('/:id', async (req, res) => { //Delete route to delete a workout

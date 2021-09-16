@@ -3,6 +3,7 @@ const newWorkout = async () => {
   
   const workoutName = document.querySelector('#workout_name').value.trim();
   const name = document.querySelector('#excercise').value.trim(); //exercise name
+  const date = document.querySelector('#date');
   const category = document.querySelector('#category').value.trim();
   const equipment = document.querySelector('#equipment').value.trim();
   const type = document.querySelector('#type').value.trim();
@@ -23,7 +24,7 @@ const newWorkout = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/profile');
   } else {
     alert(response.statusText);
   }

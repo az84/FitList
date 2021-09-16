@@ -79,7 +79,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/createworkout', async (req, res) => {
+router.get('/createworkout', withAuth, async (req, res) => {
   res.render('createworkout', {
 		loggedin: req.session.loggedin,
     User_Id: req.session.user_Id,

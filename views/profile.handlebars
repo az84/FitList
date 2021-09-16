@@ -1,10 +1,8 @@
-show username {{this.user.username}}
-show list of built workouts
-
-</br></br></br>
-  </thead>
-     {{#each workouts as |workout| }}
- {{!--    {{log 'workout' workout}} --}}
+{{this.user.username}}
+</br>
+</thead>
+{{#each workouts as |workout| }}
+{{!--    {{log 'workout' workout}} --}}
 {{log 'workout' workout}}
 {{log 'workout.exercises' workout.exercises}}
 
@@ -22,10 +20,9 @@ show list of built workouts
     </div>
   </div>
     <div class="card-group">
-  {{log 'workout.exercises.name' workout.exercises.name}}
     {{#if workout.exercises.length}}  
       {{#each workout.exercises as |exercise|}}  
-      {{log 'exercise' exercise}}
+   {{!--     {{log 'exercise' exercise}} --}}
     <div class="col-sm-6">
     <div class="card">
       <h5 class="card-header">{{this.name}}</h5>

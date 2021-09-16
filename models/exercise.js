@@ -49,10 +49,8 @@ Exercise.init(
     },
     duration: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-
-
+      allowNull: true
+    }
   },
   {
     sequelize,

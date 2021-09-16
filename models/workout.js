@@ -25,7 +25,8 @@ Workout.init(
     },
     date: {
        type: DataTypes.DATE,
-       defaultValue: sequelize.NOW
+       allowNull: true,
+       //defaultValue: sequelize.NOW 
      }
   },
   {

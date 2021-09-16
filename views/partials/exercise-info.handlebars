@@ -1,0 +1,18 @@
+           {{!--   {{#each workout.exercises as |exercise|}}   --}}
+    <div class="card">
+      <h5 class="card-header">{{this.name}}</h5>
+      <div class="card-body">
+        <ul class="list-group"></ul>
+         {{#if exercise.equipment}} <li class="list-group-item">Equipment: {{exercise.equipment}}</li>{{/if}}
+         {{#if category}} <li class="list-group-item">Category: {{category}}</li>{{/if}}
+         {{#if type}} <li class="list-group-item">Type: {{type}}</li>{{/if}}
+         {{#if muscle}} <li class="list-group-item">Muscle: {{muscle}}</li>{{/if}}
+         {{#if sets}} <li class="list-group-item">Sets: {{sets}}</li>{{/if}}
+         {{#if reps}} <li class="list-group-item">Reps: {{reps}}</li>{{/if}}
+         {{#if weight}} <li class="list-group-item">Weight: {{weight}}</li>{{/if}}
+         {{#if distance}} <li class="list-group-item">Distance: {{distance}}</li>{{/if}}
+         {{#if duration}} <li class="list-group-item">Duration: {{duration}}</li>{{/if}}
+        </ul>
+      </div>
+    </div>
+      

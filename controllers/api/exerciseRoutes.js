@@ -6,7 +6,7 @@ const { Exercise, Workout } = require('../../models');
 router.get('/', (req, res) => {
 
     Exercise.findAll({
-        attributes: ['id', 'name', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight', 'distance', 'duration'],
+        attributes: ['id', 'name', 'muscle', 'sets', 'reps', 'weight'],
         include: [{
             model: Workout,
             attributes: ['workout_name']
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'name', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight', 'distance', 'duration'],
+        attributes: ['id', 'name', 'muscle', 'sets', 'reps', 'weight'],
         include: [{
             model: Category,
             attributes: ['workout_name']

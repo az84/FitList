@@ -23,10 +23,10 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // date: {
-    //   type: DataTypes.DATE,
-      //defaultValue: Sequelize.NOW
-    // }
+    date: {
+       type: DataTypes.DATE,
+       defaultValue: sequelize.NOW
+     }
   },
   {
     sequelize,

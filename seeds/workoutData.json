@@ -1,11 +1,11 @@
 [
     {
       "workout_name": "Bar",
-      "user_id": "3"
+      "user_id": "1"
     },
     {
       "workout_name": "Body",
-      "user_id": "2"
+      "user_id": "1"
     },
     {
       "workout_name": "Dumbbells",
@@ -17,7 +17,7 @@
     },
     {
       "workout_name": "Core",
-      "user_id": "4"
+      "user_id": "1"
     }
   ]
   

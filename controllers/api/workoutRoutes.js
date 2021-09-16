@@ -1,28 +1,35 @@
 const router = require('express').Router();
-const { Workout, WorkoutExercise } = require('../../models');
+const { Workout, Exercise, WorkoutExercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, (req, res) => { // post route for Creating new workout
+router.post('/', withAuth, async (req, res) => { // post route for Creating new workout
 	console.log("req.body", req.body);
 	console.log("req.session.user_Id", req.session.user_Id);
+
 	Workout.create({
 		user_id: req.session.user_Id,
 		workout_name: req.body.workoutName,
-		name: req.body.name, // exercise name\
-		category: req.body.category,
-		equipment: req.body.equipment,
-		type: req.body.type,
-		muscle: req.body.muscle,
-		sets: req.body.sets,
-		reps: req.body.reps,
-		weight: req.body.weight,
-		distance: req.body.distance,
-		duration: req.body.duration
-	}).then(workoutData => res.json(workoutData)).catch(err => {
+		date: req.body.date,
+		exercises: [
+			{ name: req.body.name, // exercise name\
+				category: req.body.category,
+				equipment: req.body.equipment,
+				type: req.body.type,
+				muscle: req.body.muscle,
+				sets: req.body.sets,
+				reps: req.body.reps,
+				weight: req.body.weight,
+				distance: req.body.distance,
+				duration: req.body.duration }
+		//	{ another exercise not sure best way to go about } 
+		]
+	}, {include: [ Exercise ]})
+	.then(workoutData => res.json(workoutData)).catch(err => {
 		console.log(err);
-		console.log("workoutData", workoutData);
 		res.status(500).json(err);
 	});
+
+
 });
 
 router.delete('/:id', async (req, res) => { //Delete route to delete a workout

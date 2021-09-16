@@ -16,7 +16,7 @@ const newWorkout = async () => {
   const response = await fetch('/api/workouts/', {
     method: 'POST',
     body: JSON.stringify({ workoutName, name, equipment, type, muscle, sets, reps, weight,
-      distance, duration, sets, reps }),
+      distance, duration, sets, reps } ),
     headers: {
       'Content-Type': 'application/json'
     },

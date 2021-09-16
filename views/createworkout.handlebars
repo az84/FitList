@@ -1,3 +1,5 @@
+<script src="./js/workout.js" defer></script>
+
 <div class="Container">
   <h2>Create a Workout</h2>
   <div class="workoutname">
@@ -5,29 +7,34 @@
     <input type="text" name="workout_name" id="workout_name" placeholder="workout_name" />
   </div>
 
-  <div class="excercise">
-    <label for="excercise">Excercise</label>
-    <input type="text" name="excercise" id="excercise" placeholder="excercise" />
+  <label for="date">Date:</label>
+  <input type="datetime-local" id="date"
+       name="date" value="2021-09-16">
+     {{!--   min="2021-06-07T00:00" max="2021-06-14T00:00"> --}}
 
     <div class="category">
-      <label for="category">category:</label>
+      <label for="category">Category:</label>
       <input type="text" name="category" id="category" placeholder="" />
     </div>
 
     <div class="equipment">
-      <label for="equipment">equipment:</label>
+      <label for="equipment">Equipment:</label>
       <input type="text" name="equipment" id="equipment" placeholder="" />
     </div>
 
     <div class="type">
-      <label for="type">type:</label>
+      <label for="type">Type:</label>
       <input type="text" name="type" id="type" placeholder="" />
     </div>
 
     <div class="muscle">
-      <label for="type">muscle:</label>
+      <label for="type">Muscle:</label>
       <input type="text" name="muscle" id="muscle" placeholder="" />
     </div>
+
+    <div class="excercise">
+    <label for="excercise">Excercise</label>
+    <input type="text" name="excercise" id="excercise" placeholder="excercise" />
 
     <div class="sets">
       <label for="sets">Sets:</label>
@@ -58,6 +65,12 @@
   </div>
   <button type="submit" id="newWorkoutbtn" class="btn">Create new workout</button>
 </div>
+<div class="Container">
+     {{log 'this' this}}
+   {{#each exercises as |exercise| }}
+     {{> exercise-info}}
+   {{/each}}
+</div>
 
 
-<script src="./js/workout.js"></script>
+//<script src="./js/workout.js"></script>

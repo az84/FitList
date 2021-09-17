@@ -29,7 +29,7 @@ router.post('/', withAuth, async (req, res) => {
 	});
 });
 
-// post route for gettingh all workouts
+// post route for getting all workouts
 	router.get('/', (req, res) => {
 
 		Workout.findAll({

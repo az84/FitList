@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Exercise, Workout } = require('../../models');
 
 
-// get all exercise
+// post route for getting all exercises
 router.get('/', (req, res) => {
 
     Exercise.findAll({
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// get one exercise
+// post route for getting one exercise
 router.get('/:id', (req, res) => {
 
     Exercise.findOne({
@@ -48,27 +48,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// create new exercise
-// router.post('/', (req, res) => {
-//     Exercise.create({
-//             name: req.body.name,
-//             category: req.body.category,
-//             equipment: req.body.equipment,
-//             type: req.body.type,
-//             msucle: req.body.muscle, 
-//             sets: req.body.sets,
-//             reps: req.body.sets,
-//             weight: req.body.weight,
-//             distance: req.body.distance,
-//             duration: req.body.duration
-//         })
-//         .then(exerciseData => res.json(exerciseData))
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// });
-
+// post route for adding a new exercise
 router.post('/', async (req, res) => {
     try {
       const newexercise = await Exercise.create({
@@ -81,13 +61,11 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
-  
 
-// update exercise
+// post route for updating an exercise
 router.put('/:id', async (req, res) => {
     try {
         const exerciseApi = await Exercise.update({
-            // Stuff!
         }, { where: { id: req.params.id } });
         res.status(200).json(exerciseApi);
     } catch (err) {
@@ -95,10 +73,8 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
-
+// post route for deleting an exercise
 router.delete('/:id', (req, res) => {
-    // delete one product by its `id` value
     Exercise.destroy({
         where: {
             id: req.params.id
@@ -106,7 +82,7 @@ router.delete('/:id', (req, res) => {
     })
         .then(exerciseApi => {
             if (!exerciseApi) {
-                rs.status(404).json({ message: 'not found' });
+                rs.status(404).json({ message: 'No exercise found with this id' });
                 return;
             }
             res.json(exerciseApi);

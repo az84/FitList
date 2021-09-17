@@ -49,6 +49,39 @@ router.get('/:id', (req, res) => {
 });
 
 // create new exercise
+router.post('/', async (req, res) => {
+  try {
+    //console.log("req.body"req.body);
+    const newUser = await User.create({
+      username: req.body.username,
+      password: req.body.password
+    });
+
+    req.session.save(() => {
+      req.session.user_Id = newUser.id;
+      req.session.username = newUser.username;
+      req.session.loggedIn = true;
+      res.status(200).json(newUser);
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.post('/', async (req, res) => {
+    try {
+      const newexercise = await Exercise.create({
+        ...req.body,
+        user_id: req.session.user_id,
+      });
+  
+      res.status(200).json(newexercise);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+  
 
 // update exercise
 router.put('/:id', async (req, res) => {

@@ -48,10 +48,10 @@ router.delete('/:id', async (req, res) => { //Delete route to delete a workout
 
 router.put('/:id', async (req, res) => { // put Route to update workout
 	try {
-		const workout = await Workout.update({
+		const workoutData = await Workout.update({
                 // Stuff!
 		}, { where: { id: req.params.id } });
-		res.status(200).json(workout);
+		res.status(200).json(workoutData);
 	} catch (err) {
 		res.status(500).json(err);
 	}

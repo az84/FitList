@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Exercise,Workout } = require('../../models');
+const { Exercise, Workout } = require('../../models');
 
 
 // get all exercise
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
         ]
     })
-        .then(workoutApi => res.json(workoutApi))
+        .then(exerciseApi => res.json(exerciseApi))
         .catch(err => {
             res.status(500).json(err);
         });
@@ -29,18 +29,18 @@ router.get('/:id', (req, res) => {
         },
         attributes: ['id', 'name', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight', 'distance', 'duration'],
         include: [{
-            model: Category,
+            model: Workout,
             attributes: ['workout_name']
         },
 
         ]
     })
-        .then(workoutApi => {
-            if (!workoutApi) {
-                res.status(404).json({ message: 'No product found with this id' });
+        .then(exerciseApi => {
+            if (!exerciseApi) {
+                res.status(404).json({ message: 'No exercise found with this id' });
                 return;
             }
-            res.json(workoutApi);
+            res.json(exerciseApi);
         })
         .catch(err => {
             console.log(err);
@@ -71,12 +71,12 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(workoutApi => {
-            if (!workoutApi) {
+        .then(exerciseApi => {
+            if (!exerciseApi) {
                 rs.status(404).json({ message: 'not found' });
                 return;
             }
-            res.json(workoutApi);
+            res.json(exerciseApi);
         })
         .catch(err => {
             res.status(500).json(err);

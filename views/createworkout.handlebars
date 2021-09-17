@@ -1,3 +1,5 @@
+<script src="./js/workout.js" defer></script>
+
 <div class="Container">
   <h2>Create a Workout</h2>
   <div class="workoutname">
@@ -5,59 +7,70 @@
     <input type="text" name="workout_name" id="workout_name" placeholder="workout_name" />
   </div>
 
-  <div class="excercise">
-    <label for="excercise">Excercise</label>
-    <input type="text" name="excercise" id="excercise" placeholder="excercise" />
+  <label for="date">Date:</label>
+  <input type="datetime-local" id="date"
+       name="date" value="2021-09-16">
+     {{!--   min="2021-06-07T00:00" max="2021-06-14T00:00"> --}}
 
     <div class="category">
-      <label for="category">category:</label>
+      <label for="category">Category:</label>
       <input type="text" name="category" id="category" placeholder="" />
     </div>
 
     <div class="equipment">
-      <label for="equipment">equipment:</label>
+      <label for="equipment">Equipment:</label>
       <input type="text" name="equipment" id="equipment" placeholder="" />
     </div>
 
     <div class="type">
-      <label for="type">type:</label>
+      <label for="type">Type:</label>
       <input type="text" name="type" id="type" placeholder="" />
     </div>
 
     <div class="muscle">
-      <label for="type">muscle:</label>
+      <label for="type">Muscle:</label>
       <input type="text" name="muscle" id="muscle" placeholder="" />
     </div>
 
+    <div class="excercise">
+    <label for="excercise">Excercise:</label>
+    <input type="text" name="excercise" id="excercise" placeholder="excercise" />
+
     <div class="sets">
       <label for="sets">Sets:</label>
-      <input type="number" name="sets" id="sets" placeholder="4" />
+      <input type="number" name="sets" id="sets" placeholder="4" value="0" />
     </div>
 
     <div class="reps">
       <label for="reps">Reps:</label>
-      <input type="number" name="reps" id="reps" placeholder="10" />
+      <input type="number" name="reps" id="reps" value="0" placeholder="10" />
     </div>
 
     <div class="weight">
-      <label for="weight">weight:</label>
-      <input type="number" name="weight" id="weight" placeholder="10" />
+      <label for="weight">Weight (lbs):</label>
+      <input type="number" name="weight" id="weight" value="0" placeholder="10" />
     </div>
 
     <div class="distance">
-      <label for="reps">distance:</label>
-      <input type="number" name="distance" id="distance" placeholder="10" />
+      <label for="reps">Distance(mi):</label>
+      <input type="number" name="distance" id="distance" value="0" placeholder="10" />
     </div>
 
     <div class="duration">
       <label for="duration">duration:</label>
-      <input type="number" name="duration" id="duration" placeholder="10" />
+      <input type="number" name="duration" id="duration" value="0" placeholder="10" />
     </div>
 
 
   </div>
   <button type="submit" id="newWorkoutbtn" class="btn">Create new workout</button>
 </div>
+<div class="Container">
+     {{log 'this' this}}
+   {{#each exercises as |exercise| }}
+     {{> exercise-info}}
+   {{/each}}
+</div>
 
 
-<script src="./js/workout.js"></script>
+//<script src="./js/workout.js"></script>

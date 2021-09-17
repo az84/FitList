@@ -79,12 +79,21 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/createworkout', async (req, res) => {
-  res.render('createworkout', {
-		loggedin: req.session.loggedin,
-    User_Id: req.session.user_Id,
-    currentUser: req.session.username,
-	});
-});
+router.get('/createworkout', withAuth, async (req, res) => {
+    try {
+      const exerciseData = await Exercise.findAll({
+        attributes: ['id', 'name', 'category', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight', 'distance', 'duration']
+    });
+      const exercises = exerciseData.map(exercise => exercise.get({ plain: true }));
+      res.render('createworkout', {
+        exercises,
+        loggedIn: req.session.loggedIn,
+        User_Id: req.session.user_Id,
+        currentUser: req.session.username,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

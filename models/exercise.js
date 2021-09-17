@@ -11,6 +11,10 @@ Exercise.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -2,6 +2,7 @@ const newWorkout = async () => {
   event.preventDefault();
   
   const workoutName = document.querySelector('#workout_name').value.trim();
+
   
   // const name = document.querySelector('#excercise').value.trim(); //exercise name
   // const muscle = document.querySelector('#muscle').value.trim();
@@ -12,7 +13,24 @@ const newWorkout = async () => {
 
   const response = await fetch('/api/workouts/', {
     method: 'POST',
-    body: JSON.stringify({ workoutName, type }),
+
+  const date = document.querySelector('#date').value.trim();
+  const category = document.querySelector("#category").value.trim();
+  const name = document.querySelector('#excercise').value.trim(); //exercise name
+  const equipment = document.querySelector('#equipment').value.trim();
+  const type = document.querySelector('#type').value.trim();
+  const muscle = document.querySelector('#muscle').value.trim();
+  const reps = document.querySelector('#reps').value.trim();
+  const sets = document.querySelector('#sets').value.trim();
+  const distance = document.querySelector('#distance').value.trim();
+  const duration = document.querySelector('#duration').value.trim();
+  const weight = document.querySelector('#weight').value.trim();
+
+  const response = await fetch('/api/workouts/', {
+    method: 'POST',
+    body: JSON.stringify({ workoutName, date, name, equipment, type, muscle, sets, reps, weight,
+      distance, duration, sets, reps } ),
+
     headers: {
       'Content-Type': 'application/json'
     },

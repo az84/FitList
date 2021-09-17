@@ -62,16 +62,43 @@ router.post('/', async (req, res) => {
     }
   });
 
-// post route for updating an exercise
+//post route for updating an exercise
 router.put('/:id', async (req, res) => {
+     
     try {
-        const exerciseApi = await Exercise.update({
-        }, { where: { id: req.params.id } });
-        res.status(200).json(exerciseApi);
+      const exerciseApi = await Exercise.update(
+			{   name: req.body.name, 
+				category: req.body.category,
+				equipment: req.body.equipment,
+				type: req.body.type,
+				muscle: req.body.muscle,
+				sets: Number(req.body.sets),
+				reps: Number(req.body.reps),
+				weight: Number(req.body.weight),
+				distance: Number(req.body.distance),
+				duration: Number(req.body.duration)
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+      res.status(200).json(exerciseApi);
     } catch (err) {
-        res.status(500).json(err);
+      res.status(500).json(err);
     }
-});
+  });
+  
+
+
+
+
+
+
+
+
+
 
 // post route for deleting an exercise
 router.delete('/:id', (req, res) => {

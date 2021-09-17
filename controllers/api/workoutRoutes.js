@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Workout, Exercise} = require('../../models');
+const { Workout, Exercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // post route for Creating new workout
@@ -8,7 +8,7 @@ router.post('/', withAuth, async (req, res) => {
 
 	Workout.create({
 		user_id: req.session.user_Id,
-		workout_name: req.body.workoutName,
+		workout_name: req.body.workout_name,
 		date: req.body.date,
 		exercises: [
 			{ name: req.body.name, 
@@ -79,15 +79,24 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
-// post route for updating a workout
+//post route for updating a workout
 router.put('/:id', async (req, res) => {
-	try {
-		const workoutData = await Workout.update({
-		}, { where: { id: req.params.id } });
-		res.status(200).json(workoutData);
-	} catch (err) {
-		res.status(500).json(err);
-	}
-});
+     
+    try {
+      const workoutApi = await Workout.update(
+			{   workout_name: req.body.workout_name, 
+				date: req.body.date,
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+      res.status(200).json(workoutApi);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

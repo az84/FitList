@@ -49,25 +49,25 @@ router.get('/:id', (req, res) => {
 });
 
 // create new exercise
-router.post('/', async (req, res) => {
-  try {
-    //console.log("req.body"req.body);
-    const newUser = await User.create({
-      username: req.body.username,
-      password: req.body.password
-    });
-
-    req.session.save(() => {
-      req.session.user_Id = newUser.id;
-      req.session.username = newUser.username;
-      req.session.loggedIn = true;
-      res.status(200).json(newUser);
-    })
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+// router.post('/', (req, res) => {
+//     Exercise.create({
+//             name: req.body.name,
+//             category: req.body.category,
+//             equipment: req.body.equipment,
+//             type: req.body.type,
+//             msucle: req.body.muscle, 
+//             sets: req.body.sets,
+//             reps: req.body.sets,
+//             weight: req.body.weight,
+//             distance: req.body.distance,
+//             duration: req.body.duration
+//         })
+//         .then(exerciseData => res.json(exerciseData))
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 router.post('/', async (req, res) => {
     try {

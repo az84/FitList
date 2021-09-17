@@ -5,6 +5,7 @@ const excerciseRoutes = require('./exerciseRoutes');
 
 router.use('/users', userRoutes);
 router.use('/exercise', excerciseRoutes);
-router.use('/workouts', workoutRoutes);
+router.use('/workout', workoutRoutes);
+
 
 module.exports = router;

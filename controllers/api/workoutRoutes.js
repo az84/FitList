@@ -28,6 +28,23 @@ router.post('/', withAuth, async (req, res) => { // post route for Creating new 
 		res.status(500).json(err);
 	});
 
+	router.get('/', (req, res) => {
+
+		Workout.findAll({
+			attributes: ['id', 'user_id, workout_name', 'date'],
+			include: [{
+				model: Workout,
+				attributes: ['workout_name']
+			},
+	
+			]
+		})
+			.then(workoutApi => res.json(workoutApi))
+			.catch(err => {
+				res.status(500).json(err);
+			});
+	});
+
 
 });
 

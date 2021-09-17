@@ -63,14 +63,10 @@
 
 
   </div>
+  <button type="reset" id="AddExercise" value="Reset">Add Exercise</button>
   <button type="submit" id="newWorkoutbtn" class="btn">Create new workout</button>
 </div>
 <div class="Container">
-     {{log 'this' this}}
-   {{#each exercises as |exercise| }}
-     {{> exercise-info}}
-   {{/each}}
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="addStuff"></div>
+   </div>
 </div>
-
-
-//<script src="./js/workout.js"></script>

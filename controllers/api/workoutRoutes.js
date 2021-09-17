@@ -20,8 +20,8 @@ router.post('/', withAuth, async (req, res) => { // post route for Creating new 
 				reps: req.body.reps,
 				weight: req.body.weight,
 				distance: req.body.distance,
-				duration: req.body.duration }
-		//	{ another exercise not sure best way to go about } 
+				duration: req.body.duration },
+			//{  } 
 		]
 	}, {include: [ Exercise ]})
 	.then(workoutData => res.json(workoutData)).catch(err => {

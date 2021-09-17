@@ -3,7 +3,7 @@
 </br></br></br>
   </thead>
      {{#each workouts as |workout| }}
- {{!--    {{log 'workout' workout}} --}}
+     {{log 'workout' workout}}
 {{log 'workout' workout}}
 {{log 'workout.exercises' workout.exercises}}
 
@@ -15,7 +15,7 @@
          <ul class="list-group list-group-flush">
     <li class="list-group-item">Created by: {{user.username}}</li>
     <li class="list-group-item">Exercise count {{this.exercises.length}}</li>
-    <li class="list-group-item">Date: {{date}}</li>
+    <li class="list-group-item">Date: {{workout.date}}</li>
    {{!--   <li class="list-group-item">Something</li>  --}}
    </ul>
       </div>

@@ -6,9 +6,7 @@
       "muscle": "Arms",
       "sets": "5",
       "reps": "10",
-      "weight": "20",
-      "distance": "0",
-      "duration": "0"
+      "weight": "20"
     },
     {
       "name": "Exercise 2",
@@ -17,9 +15,7 @@
       "muscle": "Arms and Chest",
       "sets": "6",
       "reps": "15",
-      "weight": "50",
-      "distance": "0",
-      "duration": "0"
+      "weight": "50"
     },
     {
       "name": "Exercise 3",
@@ -28,22 +24,15 @@
       "muscle": "chest",
       "sets": "7",
       "reps": "20",
-      "weight": "25",
-      "distance": "0",
-      "duration": "0"
+      "weight": "25"
     },
     {      
       "name": "Exercise 4",
       "equipment": "Treadmill",
       "type": "Cooldown",
-      "muscle": "0",
-      "sets": "0",
-      "reps": "0",
-      "weight": "0",
       "distance": "3",
       "duration": "40"
   }
 
-    
 ]
   

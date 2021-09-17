@@ -1,7 +1,7 @@
 const newWorkout = async (event) => {
   event.preventDefault();
 
-  const noteList = document.querySelectorAll('#exerciseForm.input');
+  //const eList = document.querySelectorAll('#exerciseForm.input');
   const workoutName = document.querySelector('#workout_name').value.trim();
   const date = document.querySelector('#date').value.trim();
   const category = document.querySelector("#category").value.trim();
@@ -15,11 +15,9 @@ const newWorkout = async (event) => {
   const duration = document.querySelector('#duration').value.trim();
   const weight = document.querySelector('#weight').value.trim();
 
-
-
   const response = await fetch('/api/workouts/', {
     method: 'POST',
-    body: JSON.stringify({ workoutName, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration, sets, reps } ),
+    body: JSON.stringify({ workoutName, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
     headers: { 'Content-Type': 'application/json'},
   });
 
@@ -32,14 +30,7 @@ const newWorkout = async (event) => {
 const AddExercise = async (event) => {
   //event.preventDefault();
 
-    const eList = document.querySelectorAll("#exerciseForm.input");
-  console.log("eList", eList);
-            if (eList) //!== null
-            {
-            const exerciseArray = Array.from(eList).forEach((userItem) => {
-                console.log("userItem", userItem);
-                });
-            }
+    //const eList = document.querySelectorAll("#exerciseForm.input");
 
   const workoutName = document.querySelector('#workout_name').value.trim();
   const date = document.querySelector('#date').value.trim();
@@ -54,6 +45,7 @@ const AddExercise = async (event) => {
   const duration = document.querySelector('#duration').value.trim();
   const weight = document.querySelector('#weight').value.trim();
 
+  // this should be done with a partial 
   var insert = document.getElementById("addStuff");
   let msg = document.createElement("div");
   msg.innerHTML = `<div class="col">
@@ -78,10 +70,9 @@ const AddExercise = async (event) => {
     </div>
   </div>`
   insert.appendChild(msg);
-  if(exerciseArray) console.log("exerciseArray");
 };
 
 
 document.querySelector('#newWorkoutbtn').addEventListener('click', newWorkout);
-//document.querySelector('form').addEventListener('submit', AddExercise);
+//document.querySelector('.exerciseForm').addEventListener('reset', newWorkout);
 document.querySelector('#AddExercise').addEventListener('click', AddExercise);

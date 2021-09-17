@@ -5,8 +5,8 @@ show list of built workouts
   </thead>
      {{#each workouts as |workout| }}
  {{!--    {{log 'workout' workout}} --}}
-{{log 'workout' workout}}
-{{log 'workout.exercises' workout.exercises}}
+{{!-- {{log 'workout' workout}} --}}
+{{!-- {{log 'workout.exercises' workout.exercises}} --}}
 
 <div class="row">
   <div class="col-sm-6">
@@ -22,10 +22,10 @@ show list of built workouts
     </div>
   </div>
     <div class="card-group">
-  {{log 'workout.exercises.name' workout.exercises.name}}
-    {{#if workout.exercises.length}}  
+{{!--  {{log 'workout.exercises.name' workout.exercises.name}} --}}
+    {{#if workout.exercises.length}}   
       {{#each workout.exercises as |exercise|}}  
-      {{log 'exercise' exercise}}
+   {{!--    {{log 'exercise' exercise}} --}}
     <div class="col-sm-6">
     <div class="card">
       <h5 class="card-header">{{this.name}}</h5>

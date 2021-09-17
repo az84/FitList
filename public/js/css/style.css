@@ -4,7 +4,7 @@
     --primary-color: rgb(73, 0, 1);
     --secondar-color: hotpink;
     --gray-color-light: rgb(202, 202, 202);
-    --gray-color-dark: #000000;
+    --gray-color-dark: #915757;
     --button-primary-color: rgb(120, 134, 138);
     --button-secondary-color: rgb(58, 168, 228);
 }
@@ -41,7 +41,38 @@ header {
     transition: .25s;
     font-weight: bolder;
 }
+a .nav-link {
+    display: flex;
+    justify-content: flex-end;
+}
 
+/* Results stylings */
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 60%;
+}
+
+ .card-body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+    
+.card-body {
+    border: 1px solid var(--gray-color-light);
+    height: 250px;
+    width: 300px;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 2px 2px 6px -5px var(--gray-color-dark);
+    padding: 10px;
+    background-color: var(--base-color-primary);
+}
 
 /* Input field */
 
@@ -101,7 +132,7 @@ label:hover {
     h1 {
         font-size: 48px;
     }
-    .nav-link {
+    a .nav-link {
         display: flex;
         justify-content: flex-end;
     }

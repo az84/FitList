@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const {User} = require('../../models');
 
+// post route for creating new user
 router.post('/', async (req, res) => {
   try {
-    //console.log("req.body"req.body);
     const newUser = await User.create({
       username: req.body.username,
       password: req.body.password
@@ -20,6 +20,7 @@ router.post('/', async (req, res) => {
   }
 })
 
+// post route for logging in
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
@@ -53,6 +54,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// post route for logging out
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -63,6 +65,60 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
     document.location.replace('/login');
   }
+});
+
+// post route for getting all users
+router.get('/', (req, res) => {
+
+  User.findAll({
+    attributes: ['id', 'username'],
+  })
+    .then(userApi => res.json(userApi))
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+// post route for getting one user
+router.get('/:id', (req, res) => {
+
+  User.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ['id', 'username'],
+  })
+    .then(userApi => {
+      if (!userApi) {
+        res.status(404).json({ message: 'No User found with this id' });
+        return;
+      }
+      res.json(userApi);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// post route for getting deleting a user
+router.delete('/:id', (req, res) => {
+  User.destroy({
+      where: {
+          id: req.params.id
+      }
+  })
+      .then(usersApi => {
+          if (!usersApi) {
+              rs.status(404).json({ message: 'No User found with this id' });
+              return;
+          }
+          res.json(UsersApi);
+      })
+      .catch(err => {
+          res.status(500).json(err);
+      });
+
 });
 
 module.exports = router;

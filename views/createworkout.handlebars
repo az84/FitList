@@ -11,25 +11,26 @@
   <input type="datetime-local" id="date"
        name="date" value="2021-09-16">
      {{!--   min="2021-06-07T00:00" max="2021-06-14T00:00"> --}}
+     <form class="form" id="exerciseForm">
 
     <div class="category">
       <label for="category">Category:</label>
-      <input type="text" name="category" id="category" placeholder="" />
+      <input type="text" name="category" id="category" placeholder="category" />
     </div>
 
     <div class="equipment">
       <label for="equipment">Equipment:</label>
-      <input type="text" name="equipment" id="equipment" placeholder="" />
+      <input type="text" name="equipment" id="equipment" placeholder="equipment" />
     </div>
 
     <div class="type">
       <label for="type">Type:</label>
-      <input type="text" name="type" id="type" placeholder="" />
+      <input type="text" name="type" id="type" placeholder="type" />
     </div>
 
     <div class="muscle">
       <label for="type">Muscle:</label>
-      <input type="text" name="muscle" id="muscle" placeholder="" />
+      <input type="text" name="muscle" id="muscle" placeholder="muscle" />
     </div>
 
     <div class="excercise">
@@ -66,7 +67,9 @@
   <button type="reset" id="AddExercise" value="Reset">Add Exercise</button>
   <button type="submit" id="newWorkoutbtn" class="btn">Create new workout</button>
 </div>
+  </form>
 <div class="Container">
+  
        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="addStuff"></div>
    </div>
 </div>

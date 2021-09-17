@@ -3,8 +3,7 @@ const { Workout, Exercise, WorkoutExercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => { // post route for Creating new workout
-	console.log("req.body", req.body);
-	console.log("req.session.user_Id", req.session.user_Id);
+	console.log("req.body Workout post ", req.body);
 
 	Workout.create({
 		user_id: req.session.user_Id,

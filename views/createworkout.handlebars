@@ -11,7 +11,7 @@
   <input type="datetime-local" id="date"
        name="date" value="2021-09-16">
      {{!--   min="2021-06-07T00:00" max="2021-06-14T00:00"> --}}
-     <form class="form" id="exerciseForm">
+     <form class="form exerciseForm" name="exerciseForm" id="exerciseForm">
 
     <div class="category">
       <label for="category">Category:</label>
@@ -68,8 +68,12 @@
   <button type="submit" id="newWorkoutbtn" class="btn">Create new workout</button>
 </div>
   </form>
+  </div>
 <div class="Container">
   
-       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="addStuff"></div>
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="addStuff">
+         {{#each exercise}}
+    {{> (exercise-info) }}
+{{/each}}</div>
+
    </div>
-</div>

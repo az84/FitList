@@ -40,7 +40,7 @@ router.get('/profile', withAuth, async (req, res) => {
           {
             model: Exercise,
             attributes: ['name', 'category', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight',
-              'distance', 'duration', 'sets', 'reps'],
+              'distance', 'duration'],
             through: WorkoutExercise,
           }
         ]

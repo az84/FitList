@@ -15,11 +15,11 @@ router.post('/', withAuth, async (req, res) => { // post route for Creating new 
 				equipment: req.body.equipment,
 				type: req.body.type,
 				muscle: req.body.muscle,
-				sets: req.body.sets,
-				reps: req.body.reps,
-				weight: req.body.weight,
-				distance: req.body.distance,
-				duration: req.body.duration },
+				sets: Number(req.body.sets),
+				reps: Number(req.body.reps),
+				weight: Number(req.body.weight),
+				distance: Number(req.body.distance),
+				duration: Number(req.body.duration) },
 			//{  } 
 		]
 	}, {include: [ Exercise ]})

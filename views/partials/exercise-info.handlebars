@@ -1,12 +1,11 @@
 {{!--   {{#each workout.exercises as |exercise|}}   --}}
 <div class="col">
   <div class="card shadow-sm">
-    <div class="card-body">
-{{#if name}}  <p class="card-header">{{name}}
-<input type="checkbox" value="{{id}}">
-</p>{{/if}}
-<p class="card-text">
-  <ul class="list-group"></ul>
+   <div class="card-body">
+      {{#if name}}<p class="card-header">{{name}}</p>{{/if}}
+        <input type="checkbox" value="{{id}}">
+        <p class="card-text">
+          <ul class="list-group"></ul>
       {{#if equipment}} <li class="list-group-item">Equipment: {{equipment}}</li>{{/if}}
       {{#if category}} <li class="list-group-item">Category: {{category}}</li>{{/if}}
       {{#if type}} <li class="list-group-item">Type: {{type}}</li>{{/if}}
@@ -16,8 +15,9 @@
       {{#if weight}} <li class="list-group-item">Weight: {{weight}}</li>{{/if}}
       {{#if distance}} <li class="list-group-item">Distance: {{distance}}</li>{{/if}}
       {{#if duration}} <li class="list-group-item">Duration: {{duration}}</li>{{/if}}
-  </ul>
-  </p>
+          </ul>
+        </p>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
+

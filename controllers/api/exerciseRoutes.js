@@ -48,6 +48,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
+<<<<<<< HEAD
 // post route for adding a new exercise
 router.post('/', async (req, res) => {
     try {
@@ -61,6 +62,35 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
+=======
+// create new exercise
+router.post('/', async (req, res) => { // post route for Creating new workout
+	console.log("req.body exerciseData post ", req.body);
+
+	Exercise.create({
+		user_id: req.session.user_Id,
+		workout_name: req.body.workoutName,
+		date: req.body.date,
+        name: req.body.name, // exercise name\
+				category: req.body.category,
+				equipment: req.body.equipment,
+				type: req.body.type,
+				muscle: req.body.muscle,
+				sets: Number(req.body.sets),
+				reps: Number(req.body.reps),
+				weight: Number(req.body.weight),
+				distance: Number(req.body.distance),
+				duration: Number(req.body.duration) 
+			//{  } 
+	}, {include: [ Workout ]})
+	.then(exerciseData => res.json(exerciseData)).catch(err => {
+		console.log(err);
+		res.status(500).json(err);
+	});
+
+
+});
+>>>>>>> ff30006f368e4bd41e324fae2c7bc5086b967019
 
 // post route for updating an exercise
 router.put('/:id', async (req, res) => {

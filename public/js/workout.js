@@ -31,7 +31,6 @@ const AddExercise = async (event) => {
   //event.preventDefault();
 
     //const eList = document.querySelectorAll("#exerciseForm.input");
-
   const workoutName = document.querySelector('#workout_name').value.trim();
   const date = document.querySelector('#date').value.trim();
   const category = document.querySelector("#category").value.trim();
@@ -45,6 +44,18 @@ const AddExercise = async (event) => {
   const duration = document.querySelector('#duration').value.trim();
   const weight = document.querySelector('#weight').value.trim();
 
+
+  const response = await fetch('/api/exercise/', {
+    method: 'POST',
+    body: JSON.stringify({ workoutName, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
+    headers: { 'Content-Type': 'application/json'},
+  });
+
+  if (response.ok) { console.log("is ok", response);
+  } else {
+    alert(response.statusText);
+  }
+
   // this should be done with a partial 
   var insert = document.getElementById("addStuff");
   let msg = document.createElement("div");
@@ -54,7 +65,7 @@ const AddExercise = async (event) => {
         <p class="card-header">${name}
         </p>
         <p class="card-text">
-          <ul class="list-group"></ul>
+          <ul class="list-group">
           <li class='list-group-item'>Equipment ${equipment}</li>
           <li class="list-group-item">Category: ${category}</li>
           <li class="list-group-item">Type: ${type}</li>

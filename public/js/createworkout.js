@@ -39,7 +39,7 @@ case 10:
   var distanceone = document.getElementById('moredistance').textContent;
   var durationone = document.getElementById('moreduration').textContent;
 
-    let response = await fetch('/api/we', {
+    let response = await fetch('/api/we/', {
       method: 'POST',
       body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration, categoryone, nameone, equipmentone, typeone, muscleone,
         setsone, repsone, weightone, distanceone, durationone } ),
@@ -47,22 +47,26 @@ case 10:
     }); 
     //if (response.ok) { document.location.replace('/profile');
     if (response.ok) { document.location.replace('/profile')
-    console.log('response', response);
+    console.log('response', {response});
     } else { alert(response.statusText);
     }
 
 break;
+
+case 20:
+  break;
 //if (ex==20)
 //if (ex==30)
-case 0:
+default:
 {
-    console.log('name', name);
+    console.log('name!', name);
     let response = await fetch('/api/workout/', {
       method: 'POST',
       body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
       headers: { 'Content-Type': 'application/json'},
     });
-    if (response.ok) { document.location.replace('/profile');
+    if (response.ok) {
+     document.location.replace('/profile');
     console.log('response', response);
     } else { alert(response.statusText);
     }

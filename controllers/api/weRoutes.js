@@ -30,9 +30,9 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
   })
-    .then(userApi => {
-      if (!userApi) {
-        res.status(404).json({ message: 'No User found with this id' });
+    .then(WorkoutExerciseApi => {
+      if (!WorkoutExerciseApi) {
+        res.status(404).json({ message: 'No Workout Exercise found with this id' });
         return;
       }
       res.json(userApi);
@@ -58,7 +58,7 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, async (req, res) => { 
 	console.log("req.body we post ", req.body);
 	
-	await Workout.create({
+	Workout.create({
 		user_id: req.session.user_Id,
 		workout_name: req.body.workoutname,
 		date: req.body.date,
@@ -72,7 +72,7 @@ router.post('/', withAuth, async (req, res) => {
 				reps: Number(req.body.reps),
 				weight: Number(req.body.weight),
 				distance: Number(req.body.distance),
-				duration: Number(req.body.duration) 
+				duration: Number(req.body.duration),
 			},
 				{	name: req.body.nameone,
 					category: req.body.categoryone,
@@ -83,10 +83,13 @@ router.post('/', withAuth, async (req, res) => {
 					reps: Number(req.body.repsone),
 					weight: Number(req.body.weightone),
 					distance: Number(req.body.distanceone),
-					duration: Number(req.body.durationone)  
+					duration: Number(req.body.durationone),
 				}
 		]
-	}, {include: [ Exercise ]})
+	}, { 
+		include: [ Exercise ]
+	}
+	)
 	.then(workoutData => res.json(workoutData)).catch(err => {
 		console.log(err);
 		res.status(500).json(err);

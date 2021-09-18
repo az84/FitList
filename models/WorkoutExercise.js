@@ -15,16 +15,16 @@ WorkoutExercise.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'workout',
-        key: 'id',
-      },
+        key: 'id'
+      }
     },
     exercise_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'exercise',
-        key: 'id',
-      },
-    },
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,

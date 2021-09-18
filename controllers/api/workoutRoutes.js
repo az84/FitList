@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Workout, Exercise} = require('../../models');
+const { Workout, Exercise, WorkoutExercise} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // post route for Creating new workout
@@ -20,7 +20,8 @@ router.post('/', withAuth, async (req, res) => {
 				reps: Number(req.body.reps),
 				weight: Number(req.body.weight),
 				distance: Number(req.body.distance),
-				duration: Number(req.body.duration) },
+				duration: Number(req.body.duration) 
+			},
 		]
 	}, {include: [ Exercise ]})
 	.then(workoutData => res.json(workoutData)).catch(err => {
@@ -29,13 +30,10 @@ router.post('/', withAuth, async (req, res) => {
 	});
 });
 
-
-
-// testing upsert
-router.post('/w', withAuth, async (req, res) => { 
-	console.log("req.body Workout post ", req.body);
+router.post('/1', withAuth, async (req, res) => { 
+	console.log("req.body1 Workout post ", req.body);
 	
-	 const [instance, created] = await Workout.upsert({
+	await Workout.create({
 		user_id: req.session.user_Id,
 		workout_name: req.body.workoutname,
 		date: req.body.date,
@@ -49,17 +47,26 @@ router.post('/w', withAuth, async (req, res) => {
 				reps: Number(req.body.reps),
 				weight: Number(req.body.weight),
 				distance: Number(req.body.distance),
-				duration: Number(req.body.duration) },
+				duration: Number(req.body.duration) 
+			},
+				{	name: req.body.name1,
+					category: req.body.category1,
+					equipment: req.body.equipment1,
+					type: req.body.type1,
+					muscle: req.body.muscle1,
+					sets: Number(req.body.sets1),
+					reps: Number(req.body.reps1),
+					weight: Number(req.body.weight1),
+					distance: Number(req.body.distance1),
+					duration: Number(req.body.duration1)  
+				}
 		]
 	}, {include: [ Exercise ]})
-	.then(instance => res.json(instance)).catch(err => {
+	.then(workoutData => res.json(workoutData)).catch(err => {
 		console.log(err);
 		res.status(500).json(err);
 	});
-	console.log("Created", created);
 });
-
-
 
 // post route for gettingh all workouts
 	router.get('/', (req, res) => {

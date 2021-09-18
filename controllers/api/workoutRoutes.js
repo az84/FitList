@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const { Workout, Exercise } = require('../../models');
+const { Workout, Exercise} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // post route for Creating new workout
 router.post('/', withAuth, async (req, res) => { 
 	console.log("req.body Workout post ", req.body);
-
-	Workout.create({
+	
+	await Workout.create({
 		user_id: req.session.user_Id,
-		workout_name: req.body.workout_name,
+		workout_name: req.body.workoutname,
 		date: req.body.date,
 		exercises: [
 			{ name: req.body.name, 
@@ -29,7 +29,39 @@ router.post('/', withAuth, async (req, res) => {
 	});
 });
 
-// post route for getting all workouts
+
+
+// testing upsert
+router.post('/w', withAuth, async (req, res) => { 
+	console.log("req.body Workout post ", req.body);
+	
+	 const [instance, created] = await Workout.upsert({
+		user_id: req.session.user_Id,
+		workout_name: req.body.workoutname,
+		date: req.body.date,
+		exercises: [
+			{ name: req.body.name, 
+				category: req.body.category,
+				equipment: req.body.equipment,
+				type: req.body.type,
+				muscle: req.body.muscle,
+				sets: Number(req.body.sets),
+				reps: Number(req.body.reps),
+				weight: Number(req.body.weight),
+				distance: Number(req.body.distance),
+				duration: Number(req.body.duration) },
+		]
+	}, {include: [ Exercise ]})
+	.then(instance => res.json(instance)).catch(err => {
+		console.log(err);
+		res.status(500).json(err);
+	});
+	console.log("Created", created);
+});
+
+
+
+// post route for gettingh all workouts
 	router.get('/', (req, res) => {
 
 		Workout.findAll({
@@ -79,24 +111,15 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
-//post route for updating a workout
+// post route for updating a workout
 router.put('/:id', async (req, res) => {
-     
-    try {
-      const workoutApi = await Workout.update(
-			{   workout_name: req.body.workout_name, 
-				date: req.body.date,
-        },
-        {
-          where: {
-            id: req.params.id,
-          },
-        }
-      );
-      res.status(200).json(workoutApi);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+	try {
+		const workoutData = await Workout.update({
+		}, { where: { id: req.params.id } });
+		res.status(200).json(workoutData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
 
 module.exports = router;

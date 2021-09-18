@@ -2,7 +2,7 @@ const newWorkout = async (event) => {
   event.preventDefault();
 
   //const eList = document.querySelectorAll('#exerciseForm.input');
-  const workoutName = document.querySelector('#workout_name').value.trim();
+  const workoutname = document.querySelector('#workout_name').value.trim();
   const date = document.querySelector('#date').value.trim();
   const category = document.querySelector("#category").value.trim();
   const name = document.querySelector('#excercise').value.trim(); //exercise name
@@ -15,9 +15,9 @@ const newWorkout = async (event) => {
   const duration = document.querySelector('#duration').value.trim();
   const weight = document.querySelector('#weight').value.trim();
 
-  const response = await fetch('/api/workout/', {
+  const response = await fetch('/api/workout/w', {
     method: 'POST',
-    body: JSON.stringify({ workoutName, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
+    body: JSON.stringify({ workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
     headers: { 'Content-Type': 'application/json'},
   });
 
@@ -30,8 +30,8 @@ const newWorkout = async (event) => {
 const AddExercise = async (event) => {
   //event.preventDefault();
 
-    //const eList = document.querySelectorAll("#exerciseForm.input");
-  const workoutName = document.querySelector('#workout_name').value.trim();
+  const eList = document.querySelectorAll("#exerciseForm.input");
+  const workoutname = document.querySelector('#workout_name').value.trim();
   const date = document.querySelector('#date').value.trim();
   const category = document.querySelector("#category").value.trim();
   const name = document.querySelector('#excercise').value.trim(); //exercise name
@@ -45,9 +45,9 @@ const AddExercise = async (event) => {
   const weight = document.querySelector('#weight').value.trim();
 
 
-  const response = await fetch('/api/exercise/', {
+  const response = await fetch('/api/workout/', {
     method: 'POST',
-    body: JSON.stringify({ workoutName, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
+    body: JSON.stringify({ workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
     headers: { 'Content-Type': 'application/json'},
   });
 

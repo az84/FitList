@@ -8,7 +8,6 @@ const newWorkout = async (event) => {
   const date = document.querySelector('#date').value.trim();
   const category = document.querySelector("#category").value.trim();
   const name = document.querySelector('#excercise').value.trim(); //exercise name
-  console.log("name", name);
   const equipment = document.querySelector('#equipment').value.trim();
   const type = document.querySelector('#type').value.trim();
   const muscle = document.querySelector('#muscle').value.trim();
@@ -18,35 +17,30 @@ const newWorkout = async (event) => {
   const duration = document.querySelector('#duration').value.trim();
   const weight = document.querySelector('#weight').value.trim();
 
-  let blah = document.querySelectorAll('.e');
-  console.log(blah.length);
-  let ex = blah.length;
-  console.log(ex);
-  let fullArr = Array.from(blah);
-  console.log("fullArr", fullArr);
-  fullArr.forEach(element => console.log(element.textContent));
-  //fullArr.forEach(element => newArr.push(element.textContent));
-  //newArr.forEach(element => console.log(element));
+  let allE = document.querySelectorAll('.e'); 
+  console.log(allE.length);
+  let fullArr = Array.from(allE);
+  //console.log("fullArr", fullArr);
+  //fullArr.forEach(element => console.log(element.textContent));
 
 
-switch (ex) {
+switch (allE.length) {
 
   case ex=10:
-    const category1 = document.querySelector('.category','.1').textContent
-    const name1 = document.querySelector('.name','.1').textContent; //exercise name
-    console.log("name1", name1);
-    const equipment1 = document.querySelector('.equipment','.1').textContent;
-    const type1 = document.querySelector('.type','.1').textContent;
-    const muscle1 = document.querySelector('.muscle','.1').textContent;
-    const reps1 = document.querySelector('.reps','.1').value;
-    const sets1 = document.querySelector('.sets','.1').value;
-    const distance1 = document.querySelector('.distance','.1').value;
-    const duration1 = document.querySelector('.duration','.1').value;
-    const weight1 = document.querySelector('.weight','.1').value;
-    console.log ("weight1", weight1)
-    const r = await fetch('/api/workout/1', {
+    const categoryone = document.querySelector('.category','.1').textContent
+    const nameone = document.querySelector('.name','.1').textContent; //exercise name
+    const equipmentone = document.querySelector('.equipment','.1').textContent;
+    const typeone = document.querySelector('.type','.1').textContent;
+    const muscleone = document.querySelector('.muscle','.1').textContent;
+    const repsone = document.querySelector('.reps','.1').value;
+    const setsone = document.querySelector('.sets','.1').value;
+    const distanceone = document.querySelector('.distance','.1').value;
+    const durationone = document.querySelector('.duration','.1').value;
+    const weightone = document.querySelector('.weight','.1').value;
+    const r = await fetch('/api/we', {
       method: 'POST',
-      body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration, category1, name1, equipment1, type1, muscle1, sets1, reps1, weight1, distance1, duration1 } ),
+      body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration, categoryone, nameone, equipmentone, typeone, muscleone,
+        setsone, repsone, weightone, distanceone, durationone  } ),
       headers: { 'Content-Type': 'application/json'},
     }); 
     if (r.ok) { document.location.replace('/profile');
@@ -126,22 +120,24 @@ const AddExercise = async (event) => {
   </div>`
   insert.appendChild(msg);
 
-  let blannnnh = document.querySelectorAll('.e', '.1');
-  console.log(blannnnh.length);
-  let blah = document.querySelectorAll('.e');
-  console.log(blah.length);
-  let fullArr = Array.from(blah);
-  console.log("fullArr", fullArr);
-  console.log(fullArr.length);
+  let temp = document.querySelectorAll('.e', '.1');
+  console.log(temp.length);
+  //let allE = document.querySelectorAll('.e');
+  //console.log(allE.length);
+  let fullArr = Array.from(temp);
+  //console.log("fullArr", fullArr);
+//  console.log(fullArr.length);
 
-  Array.from(blah).forEach((userItem) => {
+  Array.from(temp).forEach((userItem) => {
     userItem.classList.add( `${x}` );
+    console.log(userItem);
   });
-  fullArr.forEach(element => console.log(element.textContent));
-  //blah.forEach(element => console.log(element.textContent));
+
+  fullArr.forEach(element => console.log(element));
+
   x++;
 };
 
 document.querySelector('#newWorkoutbtn').addEventListener('click', newWorkout);
-//document.querySelector('.exerciseForm').addEventListener('reset', newWorkout);
+//document.querySelector('.exerciseForm') .addEventListener('reset', newWorkout);
 document.querySelector('#AddExercise').addEventListener('click', AddExercise);

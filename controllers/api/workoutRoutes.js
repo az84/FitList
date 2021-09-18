@@ -30,44 +30,6 @@ router.post('/', withAuth, async (req, res) => {
 	});
 });
 
-router.post('/1', withAuth, async (req, res) => { 
-	console.log("req.body1 Workout post ", req.body);
-	
-	await Workout.create({
-		user_id: req.session.user_Id,
-		workout_name: req.body.workoutname,
-		date: req.body.date,
-		exercises: [
-			{ name: req.body.name, 
-				category: req.body.category,
-				equipment: req.body.equipment,
-				type: req.body.type,
-				muscle: req.body.muscle,
-				sets: Number(req.body.sets),
-				reps: Number(req.body.reps),
-				weight: Number(req.body.weight),
-				distance: Number(req.body.distance),
-				duration: Number(req.body.duration) 
-			},
-				{	name: req.body.name1,
-					category: req.body.category1,
-					equipment: req.body.equipment1,
-					type: req.body.type1,
-					muscle: req.body.muscle1,
-					sets: Number(req.body.sets1),
-					reps: Number(req.body.reps1),
-					weight: Number(req.body.weight1),
-					distance: Number(req.body.distance1),
-					duration: Number(req.body.duration1)  
-				}
-		]
-	}, {include: [ Exercise ]})
-	.then(workoutData => res.json(workoutData)).catch(err => {
-		console.log(err);
-		res.status(500).json(err);
-	});
-});
-
 // post route for gettingh all workouts
 	router.get('/', (req, res) => {
 

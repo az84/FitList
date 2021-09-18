@@ -2,11 +2,7 @@
 
 </br></br></br>
   </thead>
-     {{#each workouts as |workout| }}
- {{!--    {{log 'workout' workout}} --}}
-{{!-- {{log 'workout' workout}} --}}
-{{!-- {{log 'workout.exercises' workout.exercises}} --}}
-
+     {{#each workouts as |workout| }}  {{!--    {{log 'workout' workout}} --}}
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -15,16 +11,13 @@
          <ul class="list-group list-group-flush">
     <li class="list-group-item">Exercise count {{this.exercises.length}}</li>
     <li class="list-group-item">Date: {{date}}</li>
-   {{!--   <li class="list-group-item">Something</li>  --}}
    </ul>
       </div>
     </div>
   </div>
     <div class="card-group">
-{{!--  {{log 'workout.exercises.name' workout.exercises.name}} --}}
     {{#if workout.exercises.length}}   
-      {{#each workout.exercises as |exercise|}}  
-   {{!--    {{log 'exercise' exercise}} --}}
+      {{#each workout.exercises as |exercise|}}      {{!--    {{log 'exercise' exercise}} --}}
     <div class="col-sm-6">
     <div class="card">
       <h5 class="card-header">{{this.name}}</h5>

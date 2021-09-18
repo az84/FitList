@@ -1,4 +1,4 @@
-# Workout App
+# Fitlist App
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
@@ -20,7 +20,7 @@
 
 For this project we worked in a team to build an application that allows a user to log their workout for the day. They can create a new workout then add the exercise they are doing. They are also able to view, create and track their daily workouts. Users can track the name, type, weight, sets, reps, and duration of the exercise. 
 
-**Link to our website:** [Workout]()
+**Link to our website:** [Fitlist]()
 
 ***
 ## Summary:
@@ -80,5 +80,5 @@ Meet good-quality coding standards (file structure, naming conventions, follows 
 
 ***
 
-![Workout]()
+![Fitlist]()
 

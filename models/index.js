@@ -3,6 +3,7 @@ const Workout = require('./workout');
 const Exercise = require('./exercise');
 const WorkoutExercise = require('./WorkoutExercise');
 
+
 Workout.belongsToMany(Exercise, {
   through: { model:WorkoutExercise,
   foreignKey: 'workout_id'

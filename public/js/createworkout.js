@@ -1,7 +1,7 @@
 const newWorkout = async (event) => {
   event.preventDefault();
 
-  //const eList = document.querySelectorAll('#exerciseForm.input');
+//const eList = document.querySelectorAll('#exerciseForm.input');
 let workoutname = document.getElementById('workout_name').value.trim();
 let date = document.getElementById('date').value.trim();
 let category = document.getElementById('category').value.trim();
@@ -15,15 +15,9 @@ let distance = document.getElementById('distance').value.trim();
 let duration = document.getElementById('duration').value.trim();
 let weight = document.getElementById('weight').value.trim();
 
-  let allE = document.querySelectorAll('.e'); 
+let allE = document.querySelectorAll('.e'); 
+let ex = allE.length;
 
-  console.log(allE.length);
-  let ex = allE.length;
-
-  let fullArr = Array.from(allE);
-  console.log('fullArr', fullArr);
-
-  fullArr.forEach(element => console.log(element));
 console.log("ex", ex);
   switch (ex) {
 
@@ -59,7 +53,6 @@ case 20:
 //if (ex==30)
 default:
 {
-    console.log('name!', name);
     let response = await fetch('/api/workout/', {
       method: 'POST',
       body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),

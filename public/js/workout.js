@@ -18,17 +18,8 @@ let sets = document.getElementById('sets').value.trim();
 let distance = document.getElementById('distance').value.trim();
 let duration = document.getElementById('duration').value.trim();
 let weight = document.getElementById('weight').value.trim();
+// let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
 
-   let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
-  console.log(exercise);
-
-/*  const response = await fetch('/api/workout/', {
-    method: 'POST',
-    body: JSON.stringify({ workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
-    headers: { 'Content-Type': 'application/json'},
-  }); */
-
-  // this should be done with a partial 
   var insert = document.getElementById('addStuff');
   let msg = document.createElement('div');
   msg.innerHTML = 
@@ -50,9 +41,7 @@ let weight = document.getElementById('weight').value.trim();
 </ul></p></div></div></div>`
   insert.appendChild(msg);
 
-
   let allE = document.querySelectorAll('.e'); 
-  console.log(allE.length);
 
   Array.from(allE).forEach((userItem) => {
     //userItem.classList.add( `${x}` );

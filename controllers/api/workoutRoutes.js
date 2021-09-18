@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Workout, Exercise} = require('../../models');
+const { Workout, Exercise, WorkoutExercise} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // post route for Creating new workout
@@ -20,7 +20,8 @@ router.post('/', withAuth, async (req, res) => {
 				reps: Number(req.body.reps),
 				weight: Number(req.body.weight),
 				distance: Number(req.body.distance),
-				duration: Number(req.body.duration) },
+				duration: Number(req.body.duration) 
+			},
 		]
 	}, {include: [ Exercise ]})
 	.then(workoutData => res.json(workoutData)).catch(err => {
@@ -28,38 +29,6 @@ router.post('/', withAuth, async (req, res) => {
 		res.status(500).json(err);
 	});
 });
-
-
-
-// testing upsert
-router.post('/w', withAuth, async (req, res) => { 
-	console.log("req.body Workout post ", req.body);
-	
-	 const [instance, created] = await Workout.upsert({
-		user_id: req.session.user_Id,
-		workout_name: req.body.workoutname,
-		date: req.body.date,
-		exercises: [
-			{ name: req.body.name, 
-				category: req.body.category,
-				equipment: req.body.equipment,
-				type: req.body.type,
-				muscle: req.body.muscle,
-				sets: Number(req.body.sets),
-				reps: Number(req.body.reps),
-				weight: Number(req.body.weight),
-				distance: Number(req.body.distance),
-				duration: Number(req.body.duration) },
-		]
-	}, {include: [ Exercise ]})
-	.then(instance => res.json(instance)).catch(err => {
-		console.log(err);
-		res.status(500).json(err);
-	});
-	console.log("Created", created);
-});
-
-
 
 // post route for gettingh all workouts
 	router.get('/', (req, res) => {

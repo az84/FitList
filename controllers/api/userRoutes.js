@@ -110,7 +110,7 @@ router.delete('/:id', (req, res) => {
   })
       .then(usersApi => {
           if (!usersApi) {
-              rs.status(404).json({ message: 'No User found with this id' });
+              res.status(404).json({ message: 'No User found with this id' });
               return;
           }
           res.json(UsersApi);

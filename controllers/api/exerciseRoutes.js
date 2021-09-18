@@ -90,8 +90,6 @@ router.put('/:id', async (req, res) => {
     }
   });
 
-
-
 // post route for deleting an exercise
 router.delete('/:id', (req, res) => {
     Exercise.destroy({

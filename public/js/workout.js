@@ -22,6 +22,12 @@ let weight = document.getElementById('weight').value.trim();
    let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
   console.log(exercise);
 
+  const response = await fetch('/api/workout/', {
+    method: 'POST',
+    body: JSON.stringify({ workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
+    headers: { 'Content-Type': 'application/json'},
+  });
+
 
   // this should be done with a partial 
   var insert = document.getElementById('addStuff');

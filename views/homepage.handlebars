@@ -1,51 +1,15 @@
-
-<div class="table-responsive-xl d-grid gap-5">
-</br></br></br>
-  </thead>
-     {{#each workouts as |workout| }}
-     {{log 'workout' workout}}
-{{log 'workout' workout}}
-{{log 'workout.exercises' workout.exercises}}
-<div class="row" >
-  <div id="list-workout" class="col-sm-6">
-    <div class="card">
-      <h5 class="card-header">Workout Name: {{workout_name}}</h5>
-      <div class="card-body">
-         <ul class="list-group list-group-flush">
-    <li class="list-group-item">Created by: {{user.username}}</li>
-    <li class="list-group-item">Exercise count {{this.exercises.length}}</li>
-    <li class="list-group-item">Date: {{workout.date}}</li>
-   {{!--   <li class="list-group-item">Something</li>  --}}
-   </ul>
+<main>
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Welcome to Fitlist</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"></p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/profile">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Profile</button>
+        </a>
+        <a href="/createworkout">
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Create Workout</button>
+        </a>
       </div>
     </div>
   </div>
-    <div class="card-group">
- {{!--  {{log 'workout.exercises.name' workout.exercises.name}} --}}
-    {{#if workout.exercises.length}}  
-      {{#each workout.exercises as |exercise|}}  
-    {{!--  {{log 'exercise' exercise}}--}}
-    <div class="col-sm-6">
-    <div class="card">
-      <h5 class="card-header">{{this.name}}</h5>
-      <div class="card-body">
-        <ul class="list-group"></ul>
-         {{#if exercise.equipment}} <li class="list-group-item">Equipment: {{exercise.equipment}}</li>{{/if}}
-         {{#if category}} <li class="list-group-item">Category: {{category}}</li>{{/if}}
-         {{#if type}} <li class="list-group-item">Type: {{type}}</li>{{/if}}
-         {{#if muscle}} <li class="list-group-item">Muscle: {{muscle}}</li>{{/if}}
-         {{#if sets}} <li class="list-group-item">Sets: {{sets}}</li>{{/if}}
-         {{#if reps}} <li class="list-group-item">Reps: {{reps}}</li>{{/if}}
-         {{#if weight}} <li class="list-group-item">Weight: {{weight}}</li>{{/if}}
-         {{#if distance}} <li class="list-group-item">Distance: {{distance}}</li>{{/if}}
-         {{#if duration}} <li class="list-group-item">Duration: {{duration}}</li>{{/if}}
-        </ul>
-      </div>
-    </div>
-  </div>
-  {{/each}}
-    </div>
-     {{/if}}
-</div>
-  {{/each}}
-</div>

@@ -1,18 +1,17 @@
 const User = require('./User');
 const Workout = require('./Workout');
 const Exercise = require('./Exercise');
-const WorkoutExercise = require('./workoutExercise');
+const WorkoutExercise = require('./WorkoutExercise');
 
 Workout.belongsToMany(Exercise, {
-  through: { model:WorkoutExercise,
+  through: WorkoutExercise,
   foreignKey: 'workout_id'
-  }
   });
 
 Exercise.belongsToMany(Workout, {
-  through: { model:WorkoutExercise,
-  foreignKey: 'exercise_id'
-  }
+  through: WorkoutExercise,
+  foreignKey: 'exercise_id',
+  onDelete: 'CASCADE',
   });
 
 Workout.belongsTo(User, {

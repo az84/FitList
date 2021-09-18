@@ -109,11 +109,15 @@ label:hover {
 
 .btn {
     padding: 10px 20px;
+    margin: 12px;
+    margin-top: .10rem!important;
+    margin-bottom: .10rem!important;
     color: var(--base-color);
     background-color: var(--button-primary-color);
     border: 2px solid var(--button-secondary-color);
     border-radius: 5px;
     cursor: pointer;
+    display:inline block;
 }
 
 .btn:hover {

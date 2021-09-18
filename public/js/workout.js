@@ -15,7 +15,7 @@ const newWorkout = async (event) => {
   const duration = document.querySelector('#duration').value.trim();
   const weight = document.querySelector('#weight').value.trim();
 
-  const response = await fetch('/api/workout/w', {
+  const response = await fetch('/api/workout/', {
     method: 'POST',
     body: JSON.stringify({ workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration } ),
     headers: { 'Content-Type': 'application/json'},

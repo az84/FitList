@@ -5,7 +5,6 @@ let x = 1
 const AddExercise = async (event) => {
   event.preventDefault();
 
-
 //  const eList = document.querySelectorAll('#exerciseForm.input');
 let workoutname = document.getElementById('workout_name').value.trim();
 let date = document.getElementById('date').valueAsDate;
@@ -53,17 +52,16 @@ msg.innerHTML =
   x++;
 };
 
-
-
 const testing = async (event) => {
   
   let exerciseForm = document.getElementById('exerciseForm');
   let exerciseFormData = new FormData(exerciseForm);
   console.log("exerciseFormData", exerciseFormData);
+  //const exercises = exerciseFormData.map(exercise => exercise.get({plain: true}));
+  //console.log("Excercieses", exercises);
   console.log("FormData.entries()", exerciseFormData.entries());
-  console.log("FormData.values()", exerciseFormData.values());
-  console.log("FormData.keys()", exerciseFormData.keys());
-  console.log(FormData.getAll());
+//  console.log("FormData.values()", exerciseFormData.values());
+  //console.log("FormData.keys()", exerciseFormData.keys());
 
   exerciseFormData.forEach(element => {
     console.log(sanitise(element));

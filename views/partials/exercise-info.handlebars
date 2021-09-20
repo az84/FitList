@@ -1,9 +1,9 @@
-{{!--   {{#each workout.exercises as |exercise|}}   --}}
+{{#each exercises as |exercise|}}
+{{log 'this' this}}
 <div class="col">
   <div class="card shadow-sm">
    <div class="card-body">
       {{#if name}}<p class="card-header">{{name}}</p>{{/if}}
-        <input type="checkbox" value="{{id}}">
         <p class="card-text">
           <ul class="list-group"></ul>
       {{#if equipment}} <li class="list-group-item">Equipment: {{equipment}}</li>{{/if}}
@@ -20,4 +20,4 @@
       </div>
     </div>
   </div>
-
+{{/each}}

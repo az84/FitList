@@ -1,12 +1,7 @@
-
-<main>
-
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">My Exercises</h1>
-          <a href="#" class="btn btn-primary my-2">Create</a>
-
+        <h1 class="fw-light">Exercises</h1>
         </p>
       </div>
     </div>
@@ -14,169 +9,18 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
-
-      {{!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> --}}
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save
-                </button>
-
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save
-                </button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Save
-                </button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save
-                </button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save</button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save</button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save</button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise.</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save</button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <p class="card-text">Exercise.</p>
-              {{!-- <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Save</button>
-                <a href="#" class="btn btn-secondary my-2">Delete</a>
-                <div class="dropdown-menu">
-
-                </div> --}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {{> exercise-info }}
     </div>
   </div>
-  </div>
-  </div>
-  </div>
-  </div>
-</main>
-</body>
-
-</html>
 
 
-<script src="./js/workout.js"></script>
+  {{!-- <div class="btn-group">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Save
+    </button>
+
+    <a href="#" class="btn btn-secondary my-2">Delete</a>
+
+    <div class="dropdown-menu">
+
+    </div> --}}

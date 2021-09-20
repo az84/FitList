@@ -1,19 +1,20 @@
 const newWorkout = async (event) => {
   event.preventDefault();
 
+
 //const eList = document.querySelectorAll('#exerciseForm.input');
 let workoutname = document.getElementById('workout_name').value.trim();
-let date = document.getElementById('date').value.trim();
+let date = document.getElementById('date').valueAsDate;
 let category = document.getElementById('category').value.trim();
 let name = document.getElementById('excercise').value.trim(); //exercise name
 let equipment = document.getElementById('equipment').value.trim();
 let type = document.getElementById('type').value.trim();
 let muscle = document.getElementById('muscle').value.trim();
-let reps = document.getElementById('reps').value.trim();
-let sets = document.getElementById('sets').value.trim();
-let distance = document.getElementById('distance').value.trim();
-let duration = document.getElementById('duration').value.trim();
-let weight = document.getElementById('weight').value.trim();
+let reps = document.getElementById('reps').valueAsNumber;
+let sets = document.getElementById('sets').valueAsNumber;
+let distance = document.getElementById('distance').valueAsNumber;
+let duration = document.getElementById('duration').valueAsNumber;
+let weight = document.getElementById('weight').valueAsNumber;
 
 let allE = document.querySelectorAll('.e'); 
 let ex = allE.length;
@@ -35,11 +36,9 @@ case 10:
 
     let response = await fetch('/api/we/', {
       method: 'POST',
-      body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration, categoryone, nameone, equipmentone, typeone, muscleone,
-        setsone, repsone, weightone, distanceone, durationone } ),
+      body: JSON.stringify({ workoutname, date, category, name, equipment, type, muscle, sets, reps, weight, distance, duration, categoryone, nameone, equipmentone, typeone, muscleone, setsone, repsone, weightone, distanceone, durationone } ),
       headers: { 'Content-Type': 'application/json'},
     }); 
-    //if (response.ok) { document.location.replace('/profile');
     if (response.ok) { document.location.replace('/profile')
     console.log('response', {response});
     } else { alert(response.statusText);
@@ -67,5 +66,18 @@ default:
 }
   }
 };
+
+const test = async (event) => {
+  let exerciseForm = document.getElementById('exerciseForm');
+  let exerciseFormData = new FormData(exerciseForm);
+  console.log("exerciseFormData", exerciseFormData);
+  console.log("FormData.entries()", exerciseFormData.entries());
+  console.log("FormData.values()", exerciseFormData.values());
+  console.log("FormData.keys()", exerciseFormData.keys());
+
+}
+
+
+document.querySelector('#exerciseForm').addEventListener('submit', test);
 
 document.querySelector('#newWorkoutbtn').addEventListener('click', newWorkout);

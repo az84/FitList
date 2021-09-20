@@ -4,10 +4,11 @@ let x = 1
 
 const AddExercise = async (event) => {
   event.preventDefault();
-  
+
+
 //  const eList = document.querySelectorAll('#exerciseForm.input');
 let workoutname = document.getElementById('workout_name').value.trim();
-let date = document.getElementById('date').value.trim();
+let date = document.getElementById('date').valueAsDate;
 let category = document.getElementById('category').value.trim();
 let name = document.getElementById('excercise').value.trim(); //exercise name
 let equipment = document.getElementById('equipment').value.trim();
@@ -22,13 +23,13 @@ let weight = document.getElementById('weight').value.trim();
 
   var insert = document.getElementById('addStuff');
   let msg = document.createElement('div');
-  msg.innerHTML = 
+msg.innerHTML =
 `<div class='col'>
 <div class='card shadow-sm'>
 <div class='card-body'>
 <p class='card-text'>
 <ul class='list-group' id='exerciselist'>
-<li class='list-group-item e' id='anothername'>${name}</li>
+<li class='list-group-item e' name='anothername' id='anothername'>${name}</li>
 <li class='list-group-item e' id='moreequipment'>${equipment}</li>
 <li class='list-group-item e' id='anothercategory'>${category}</li>
 <li class='list-group-item e' id='anothertype'>${type}</li>
@@ -46,11 +47,30 @@ let weight = document.getElementById('weight').value.trim();
   Array.from(allE).forEach((userItem) => {
     //userItem.classList.add( `${x}` );
     userItem.setAttribute('data-index', x);
-    console.log(userItem);
+    //console.log(userItem);
   });
 
   x++;
 };
 
-//document.querySelector('.exerciseForm') .addEventListener('reset', newWorkout);
+
+
+const testing = async (event) => {
+  
+  let exerciseForm = document.getElementById('exerciseForm');
+  let exerciseFormData = new FormData(exerciseForm);
+  console.log("exerciseFormData", exerciseFormData);
+  console.log("FormData.entries()", exerciseFormData.entries());
+  console.log("FormData.values()", exerciseFormData.values());
+  console.log("FormData.keys()", exerciseFormData.keys());
+  console.log(FormData.getAll());
+
+  exerciseFormData.forEach(element => {
+    console.log(sanitise(element));
+  });
+}
+
+
+
+document.querySelector('#exerciseForm').addEventListener('sumbit', testing);
 document.querySelector('#AddExercise').addEventListener('click', AddExercise);

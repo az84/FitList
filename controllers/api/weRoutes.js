@@ -48,18 +48,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/', (req, res) => {
-
-  WorkoutExercise.findAll({
-
-    })
-    .then(We => res.json(We))
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
-
-
 router.post('/', withAuth, async (req, res) => {
   console.log("req.body workoutexercise post ", req.body);
 

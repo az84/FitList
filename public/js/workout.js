@@ -19,7 +19,6 @@ let distance = document.getElementById('distance').value.trim();
 let duration = document.getElementById('duration').value.trim();
 let weight = document.getElementById('weight').value.trim();
 // let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
-
   var insert = document.getElementById('addStuff');
   let msg = document.createElement('div');
 msg.innerHTML =
@@ -52,23 +51,33 @@ msg.innerHTML =
   x++;
 };
 
-const testing = async (event) => {
-  
-  let exerciseForm = document.getElementById('exerciseForm');
-  let exerciseFormData = new FormData(exerciseForm);
-  console.log("exerciseFormData", exerciseFormData);
-  //const exercises = exerciseFormData.map(exercise => exercise.get({plain: true}));
-  //console.log("Excercieses", exercises);
-  console.log("FormData.entries()", exerciseFormData.entries());
-//  console.log("FormData.values()", exerciseFormData.values());
-  //console.log("FormData.keys()", exerciseFormData.keys());
 
-  exerciseFormData.forEach(element => {
-    console.log(sanitise(element));
-  });
+function updateValue(e) {
+  console.log("category", cat.value);
+  //console.log("e", e);
+  if (cat.value === 'Weight')
+  {
+    document.getElementById('distance').previousElementSibling.setAttribute("hidden", "hidden");
+    document.getElementById('distance').type = 'hidden';
+
+    document.getElementById('duration').previousElementSibling.setAttribute("hidden", "hidden");
+    document.getElementById('duration').type = 'hidden';
+  }
+  if (cat.value === 'Cardio')
+  {
+    document.getElementById('weight').previousElementSibling.setAttribute("hidden", "hidden");
+    document.getElementById('weight').type = 'hidden';
+
+    document.getElementById('sets').previousElementSibling.setAttribute("hidden", "hidden");
+    document.getElementById('sets').type = 'hidden';
+    
+    document.getElementById('reps').previousElementSibling.setAttribute("hidden", "hidden");
+    document.getElementById('reps').type = 'hidden';
+  }
 }
 
-
-
-document.querySelector('#exerciseForm').addEventListener('sumbit', testing);
+var cat = document.getElementById("category");
+cat.addEventListener('change', updateValue);
 document.querySelector('#AddExercise').addEventListener('click', AddExercise);
+
+//document.querySelector('#exerciseForm').addEventListener('sumbit', testing);

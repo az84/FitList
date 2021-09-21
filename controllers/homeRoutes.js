@@ -86,9 +86,7 @@ router.get('/exercise', withAuth, async (req, res) => {
     const exerciseData = await Exercise.findAll({
       attributes: ['id', 'name', 'category', 'equipment', 'type', 'muscle', 'sets', 'reps', 'weight', 'distance', 'duration']
     });
-    const exercises = exerciseData.map(exercise => exercise.get({
-      plain: true
-    }));
+    const exercises = exerciseData.map(exercise => exercise.get({ plain: true }));
     res.render('exercise', {
       exercises,
       loggedIn: req.session.loggedIn,

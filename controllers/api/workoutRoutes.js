@@ -1,9 +1,5 @@
 const router = require('express').Router();
-const {
-  Workout,
-  Exercise,
-  WorkoutExercise
-} = require('../../models');
+const { Workout, Exercise, WorkoutExercise } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // post route for Creating new workout

@@ -1,13 +1,24 @@
 let x = 1
 
-//#exerciselist > li.list-group-item.e.category.id\=
-
 const AddExercise = async (event) => {
-  event.preventDefault();
+  //event.preventDefault();
+  labels = document.getElementsByTagName('label');
+  console.log("labels", labels);
+  console.log("labels.length", labels.length);
+  for (var i = 0; i < labels.length; i++) {
+    labels[i].removeAttribute("hidden", "hidden");
+  }
+
+  document.getElementById('distance').type = 'text';
+  document.getElementById('duration').type = 'text';
+  document.getElementById('weight').type = 'text';
+  document.getElementById('sets').type = 'text';
+  document.getElementById('reps').type = 'text';
+
 
 //  const eList = document.querySelectorAll('#exerciseForm.input');
-let workoutname = document.getElementById('workout_name').value.trim();
-let date = document.getElementById('date').valueAsDate;
+//let workoutname = document.getElementById('workout_name').value.trim();
+//let date = document.getElementById('date').value;
 let category = document.getElementById('category').value.trim();
 let name = document.getElementById('excercise').value.trim(); //exercise name
 let equipment = document.getElementById('equipment').value.trim();
@@ -19,6 +30,7 @@ let distance = document.getElementById('distance').value.trim();
 let duration = document.getElementById('duration').value.trim();
 let weight = document.getElementById('weight').value.trim();
 // let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
+
   var insert = document.getElementById('addStuff');
   let msg = document.createElement('div');
 msg.innerHTML =
@@ -51,11 +63,9 @@ msg.innerHTML =
   x++;
 };
 
-
 function updateValue(e) {
   console.log("category", cat.value);
-  //console.log("e", e);
-  if (cat.value === 'Weight')
+  if (cat.value === 'Weight') // selecting weight for category hides distance and duration
   {
     document.getElementById('distance').previousElementSibling.setAttribute("hidden", "hidden");
     document.getElementById('distance').type = 'hidden';
@@ -63,7 +73,7 @@ function updateValue(e) {
     document.getElementById('duration').previousElementSibling.setAttribute("hidden", "hidden");
     document.getElementById('duration').type = 'hidden';
   }
-  if (cat.value === 'Cardio')
+  if (cat.value === 'Cardio') // selecting cardio hides weight, sets, reps
   {
     document.getElementById('weight').previousElementSibling.setAttribute("hidden", "hidden");
     document.getElementById('weight').type = 'hidden';
@@ -78,6 +88,8 @@ function updateValue(e) {
 
 var cat = document.getElementById("category");
 cat.addEventListener('change', updateValue);
-document.querySelector('#AddExercise').addEventListener('click', AddExercise);
 
+document.querySelector('#exerciseForm').addEventListener('reset', AddExercise);
+
+//document.querySelector('#AddExercise').addEventListener('click', AddExercise);
 //document.querySelector('#exerciseForm').addEventListener('sumbit', testing);

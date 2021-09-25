@@ -1,24 +1,24 @@
 const newWorkout = async (event) => {
   event.preventDefault();
 
-//const eList = document.querySelectorAll('#exerciseForm.input');
-let workoutname = document.getElementById('workout_name').value.trim();
-let date = document.getElementById('date').value.trim();
-let category = document.getElementById('category').value.trim();
-let name = document.getElementById('excercise').value.trim(); //exercise name
-let equipment = document.getElementById('equipment').value.trim();
-let type = document.getElementById('type').value.trim();
-let muscle = document.getElementById('muscle').value.trim();
-let reps = document.getElementById('reps').value.trim();
-let sets = document.getElementById('sets').value.trim();
-let distance = document.getElementById('distance').value.trim();
-let duration = document.getElementById('duration').value.trim();
-let weight = document.getElementById('weight').value.trim();
+  //const eList = document.querySelectorAll('#exerciseForm.input');
+  let workoutname = document.getElementById('workout_name').value.trim();
+  let date = document.getElementById('date').value.trim();
+  let category = document.getElementById('category').value.trim();
+  let name = document.getElementById('excercise').value.trim(); //exercise name
+  let equipment = document.getElementById('equipment').value.trim();
+  let type = document.getElementById('type').value.trim();
+  let muscle = document.getElementById('muscle').value.trim();
+  let reps = document.getElementById('reps').value.trim();
+  let sets = document.getElementById('sets').value.trim();
+  let distance = document.getElementById('distance').value.trim();
+  let duration = document.getElementById('duration').value.trim();
+  let weight = document.getElementById('weight').value.trim();
 
-let allE = document.querySelectorAll('.e'); 
-let ex = allE.length;
+  let allE = document.querySelectorAll('.e'); 
+  let ex = allE.length;
 
-console.log('ex', ex);
+  console.log('ex', ex);
 switch (ex) 
 {
   case 10:

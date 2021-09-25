@@ -64,20 +64,16 @@ msg.innerHTML =
 function updateValue(e) {
   let cardioCat = [distance, duration];
 let weightCat = [weight, sets, reps];
-console.log("cardioCat", cardioCat);
-console.log("weightCat", weightCat);
   if (cat.value === 'Weight') // selecting weight for category hides distance and duration
   {
     cardioCat.forEach(e => {
       console.log("e", e);
       e.previousElementSibling.setAttribute("hidden", "hidden");
       e.type = 'hidden';
-      console.log("Weight cardioCat", e);
     });
     weightCat.forEach(e => {
       e.previousElementSibling.removeAttribute("hidden", "hidden");
       e.type = 'text';
-      console.log("Weight weightCat", e);
     });
   }
   if (cat.value === 'Cardio') // selecting cardio hides weight, sets, reps

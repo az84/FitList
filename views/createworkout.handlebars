@@ -1,106 +1,106 @@
-<div class="Container">
+<div class='Container'>
   <h2>Create a Workout</h2>
 
 
-  {{!--     <form class="form exerciseForm" name="exerciseForm" id="exerciseForm"> --}}
-  <div class="workout_name">
-    <label for="workout_name">Workout name</label>
-    <input type="text" name="workout_name" id="workout_name" placeholder="workout_name" />
+  {{!--     <form class='form exerciseForm' name='exerciseForm' id='exerciseForm'> --}}
+  <div class='workout_name'>
+    <label for='workout_name'>Workout name</label>
+    <input type='text' name='workout_name' id='workout_name' placeholder='workout_name' />
   </div>
 
-  <label for="date">Date:</label>
-  <input type="datetime-local" id="date" name="date" placeholder="2021-09-16">
-     {{!--   min="2021-06-07T00:00" max="2021-06-14T00:00"> --}}
+  <label for='date'>Date:</label>
+  <input type='datetime-local' id='date' name='date' placeholder='2021-09-16'>
+     {{!--   min='2021-06-07T00:00' max='2021-06-14T00:00'> --}}
 
-<form class="form exerciseForm" name="exerciseForm" id="exerciseForm">
+<form class='form exerciseForm' name='exerciseForm' id='exerciseForm'>
 
-       <label for="category">Category:</label>
-        <input list="cat" id="category" name="category" autocomplete="off" />  
-        <datalist id="cat">
-            <option value="Weight">
-            <option value="Cardio">
+       <label for='category'>Category:</label>
+        <input list='cat' id='category' name='category' autocomplete='off' />  
+        <datalist id='cat'>
+            <option value='Weight'>
+            <option value='Cardio'>
         </datalist>
 
-    <label for="excercise">Excercise Name:</label>
-    <input type="text" name="excercise" id="excercise" />
+    <label for='excercise'>Excercise Name:</label>
+    <input type='text' name='excercise' id='excercise' />
 
-        <label for="equipment">Equipment:</label>
-        <input list="equip" id="equipment" name="equipment" autocomplete="off"/>  
-        <datalist id="equip">
-            <option value="Dumbbells">
-            <option value="Platform">
-            <option value="Body Weight"></option>
-            <option value="Squat Rack">
-            <option value="Kettlebells">
-            <option value="Platform">
-            <option value="Cable">
-            <option value="Band">
-            <option value="Medicine Ball">
+        <label for='equipment'>Equipment:</label>
+        <input list='equip' id='equipment' name='equipment' autocomplete='off'/>  
+        <datalist id='equip'>
+            <option value='Dumbbells'>
+            <option value='Platform'>
+            <option value='Body Weight'></option>
+            <option value='Squat Rack'>
+            <option value='Kettlebells'>
+            <option value='Platform'>
+            <option value='Cable'>
+            <option value='Band'>
+            <option value='Medicine Ball'>
        </datalist>
 
-      <label for="type">Type:</label>
-        <input list="typ" id="type" name="type" />  
-        <datalist id="typ">
-            <option value="Strength">
-            <option value="Endurance">
-            <option value="Flexibility">
-            <option value="Balance">
+      <label for='type'>Type:</label>
+        <input list='typ' id='type' name='type' />  
+        <datalist id='typ'>
+            <option value='Strength'>
+            <option value='Endurance'>
+            <option value='Flexibility'>
+            <option value='Balance'>
        </datalist>
           
-     <label for="muscle">Muscle:</label>
-    <input list="muscl" id="muscle" name="muscle"/>  
-        <datalist id="muscl">
-            <option value="Arms">
-            <option value="Core">
-            <option value="FullBody">
-            <option value="Legs">
-            <option value="Back">
-            <option value="Shoulders">
-            <option value="Hips">
-            <option value="Chest">
-            <option value="Butt">
-            <option value="Cardio Heart">
+     <label for='muscle'>Muscle:</label>
+    <input list='muscl' id='muscle' name='muscle'/>  
+        <datalist id='muscl'>
+            <option value='Arms'>
+            <option value='Core'>
+            <option value='FullBody'>
+            <option value='Legs'>
+            <option value='Back'>
+            <option value='Shoulders'>
+            <option value='Hips'>
+            <option value='Chest'>
+            <option value='Butt'>
+            <option value='Cardio Heart'>
        </datalist>
 
     <div>
-      <label for="sets">Sets:</label>
+      <label for='sets'>Sets:</label>
       <input type='number' name='sets' id='sets'/>
     </div>
     
     <div>
-      <label for="reps">Reps:</label>
-      <input type="number" name="reps" id="reps"/>
+      <label for='reps'>Reps:</label>
+      <input type='number' name='reps' id='reps'/>
     </div>
 
     <div>
-      <label for="weight">Weight (lbs):</label>
-      <input type="number" name="weight" id="weight"/>
+      <label for='weight'>Weight (lbs):</label>
+      <input type='number' name='weight' id='weight'/>
     </div>
 
     <div>
-      <label for="reps">Distance(mi):</label>
-      <input type="number" name="distance" id="distance"/>
+      <label for='reps'>Distance(mi):</label>
+      <input type='number' name='distance' id='distance'/>
     </div>
 
     <div>
-      <label for="duration">Duration:</label>
-      <input type="number" name="duration" id="duration"/>
+      <label for='duration'>Duration:</label>
+      <input type='number' name='duration' id='duration'/>
     </div>
 
 
   </div>
-  <button type="reset" id="AddExercise" value="Reset">Add Exercise</button>
-  <button type="submit" id="newWorkoutbtn" class="btn">Create new workout</button>
+  <button type='reset' id='AddExercise' value='Reset'>Add Exercise</button>
+  <button type='submit' id='newWorkoutbtn' class='btn'>Create new workout</button>
 </div>
   </form>
   
   </div>
-<div class="Container">
+<div class='Container'>
   
-       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="addStuff">
+       <div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3' id='addStuff'>
   
 </div>
 
    </div>
-<script src="./js/workout.js"></script>
-<script src="./js/createworkout.js"></script>
+<script src='./js/workout.js'></script>
+<script src='./js/createworkout.js'></script>

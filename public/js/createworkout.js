@@ -18,7 +18,7 @@ let weight = document.getElementById('weight').value.trim();
 let allE = document.querySelectorAll('.e'); 
 let ex = allE.length;
 
-console.log("ex", ex);
+console.log('ex', ex);
 switch (ex) 
 {
   case 10:
@@ -68,10 +68,10 @@ break;
 /*const test = async (event) => {       // was going to try to switch from fetch using json to using formdata
   let exerciseForm = document.getElementById('exerciseForm');
   let exerciseFormData = new FormData(exerciseForm);
-  console.log("exerciseFormData", exerciseFormData);
-  console.log("FormData.entries()", exerciseFormData.entries());
-  console.log("FormData.values()", exerciseFormData.values());
-  console.log("FormData.keys()", exerciseFormData.keys());
+  console.log('exerciseFormData', exerciseFormData);
+  console.log('FormData.entries()', exerciseFormData.entries());
+  console.log('FormData.values()', exerciseFormData.values());
+  console.log('FormData.keys()', exerciseFormData.keys());
 } */
 //document.querySelector('#exerciseForm').addEventListener('submit', test);
 

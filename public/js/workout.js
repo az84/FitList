@@ -2,13 +2,11 @@ let x = 1
 
 const AddExercise = async (event) => {
   //event.preventDefault();
+  //resets the form for next exercise.
   labels = document.getElementsByTagName('label');
-  console.log("labels", labels);
-  console.log("labels.length", labels.length);
   for (var i = 0; i < labels.length; i++) {
-    labels[i].removeAttribute("hidden", "hidden");
+    labels[i].removeAttribute('hidden', 'hidden');
   }
-
   document.getElementById('distance').type = 'text';
   document.getElementById('duration').type = 'text';
   document.getElementById('weight').type = 'text';
@@ -16,23 +14,23 @@ const AddExercise = async (event) => {
   document.getElementById('reps').type = 'text';
 
 
-//  const eList = document.querySelectorAll('#exerciseForm.input');
-//let workoutname = document.getElementById('workout_name').value.trim();
-//let date = document.getElementById('date').value;
-let category = document.getElementById('category').value.trim();
-let name = document.getElementById('excercise').value.trim(); //exercise name
-let equipment = document.getElementById('equipment').value.trim();
-let type = document.getElementById('type').value.trim();
-let muscle = document.getElementById('muscle').value.trim();
-let reps = document.getElementById('reps').value.trim();
-let sets = document.getElementById('sets').value.trim();
-let distance = document.getElementById('distance').value.trim();
-let duration = document.getElementById('duration').value.trim();
-let weight = document.getElementById('weight').value.trim();
-// let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
-
+  //  const eList = document.querySelectorAll('#exerciseForm.input');
+  //let workoutname = document.getElementById('workout_name').value.trim();
+  //let date = document.getElementById('date').value;
+  let category = document.getElementById('category').value.trim();
+  let name = document.getElementById('excercise').value.trim(); //exercise name
+  let equipment = document.getElementById('equipment').value.trim();
+  let type = document.getElementById('type').value.trim();
+  let muscle = document.getElementById('muscle').value.trim();
+  let reps = document.getElementById('reps').value.trim();
+  let sets = document.getElementById('sets').value.trim();
+  let distance = document.getElementById('distance').value.trim();
+  let duration = document.getElementById('duration').value.trim();
+  let weight = document.getElementById('weight').value.trim();
+  //let exercise = [workoutname, category, date, name, equipment, type, muscle, sets, reps, weight, distance, duration];
   var insert = document.getElementById('addStuff');
   let msg = document.createElement('div');
+
 msg.innerHTML =
 `<div class='col'>
 <div class='card shadow-sm'>
@@ -57,32 +55,41 @@ msg.innerHTML =
   Array.from(allE).forEach((userItem) => {
     //userItem.classList.add( `${x}` );
     userItem.setAttribute('data-index', x);
-    //console.log(userItem);
   });
 
   x++;
 };
 
+
 function updateValue(e) {
-  console.log("category", cat.value);
+  let cardioCat = [distance, duration];
+let weightCat = [weight, sets, reps];
+console.log("cardioCat", cardioCat);
+console.log("weightCat", weightCat);
   if (cat.value === 'Weight') // selecting weight for category hides distance and duration
   {
-    document.getElementById('distance').previousElementSibling.setAttribute("hidden", "hidden");
-    document.getElementById('distance').type = 'hidden';
-
-    document.getElementById('duration').previousElementSibling.setAttribute("hidden", "hidden");
-    document.getElementById('duration').type = 'hidden';
+    cardioCat.forEach(e => {
+      console.log("e", e);
+      e.previousElementSibling.setAttribute("hidden", "hidden");
+      e.type = 'hidden';
+      console.log("Weight cardioCat", e);
+    });
+    weightCat.forEach(e => {
+      e.previousElementSibling.removeAttribute("hidden", "hidden");
+      e.type = 'text';
+      console.log("Weight weightCat", e);
+    });
   }
   if (cat.value === 'Cardio') // selecting cardio hides weight, sets, reps
   {
-    document.getElementById('weight').previousElementSibling.setAttribute("hidden", "hidden");
-    document.getElementById('weight').type = 'hidden';
-
-    document.getElementById('sets').previousElementSibling.setAttribute("hidden", "hidden");
-    document.getElementById('sets').type = 'hidden';
-    
-    document.getElementById('reps').previousElementSibling.setAttribute("hidden", "hidden");
-    document.getElementById('reps').type = 'hidden';
+    weightCat.forEach(e => {
+      e.previousElementSibling.setAttribute("hidden", "hidden");
+      e.type = 'hidden';
+    });
+    cardioCat.forEach(e => {
+      e.previousElementSibling.removeAttribute("hidden", "hidden");
+      e.type = 'text';
+    });
   }
 }
 

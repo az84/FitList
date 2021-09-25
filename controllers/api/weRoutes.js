@@ -73,7 +73,7 @@ router.post('/', withAuth, async (req, res) => {
           equipment: req.body.equipmentone,
           type: req.body.typeone,
           muscle: req.body.muscleone,
-          sets: req.body.setsone,
+          sets: Number(req.body.setsone),
           reps: Number(req.body.repsone),
           weight: Number(req.body.weightone),
           distance: Number(req.body.distanceone),

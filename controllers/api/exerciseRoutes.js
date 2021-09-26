@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
             model: Workout,
             attributes: ['workout_name']
         },
-
         ]
     })
         .then(exerciseApi => res.json(exerciseApi))

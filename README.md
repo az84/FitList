@@ -20,7 +20,9 @@
 
 For this project we worked in a team to build an application that allows a user to log their workout for the day. They can create a new workout then add the exercise they are doing. They are also able to view, create and track their daily workouts. Users can track the name, type, weight, sets, reps, and duration of the exercise. 
 
-**Link to our website:** [Fitlist](https://boiling-headland-53434.herokuapp.com/)
+[Fitlist Heroku link](https://boiling-headland-53434.herokuapp.com/)
+
+<img width="556" alt="Screen Shot 2019-06-19 at 5 26 59 PM" src="public\images\Capture.PNG">
 
 ***
 ## Summary:
@@ -76,8 +78,7 @@ Meet good-quality coding standards (file structure, naming conventions, follows 
 - As a user I want to track what excercises I do during a day, or set reminders (some sort of calendar function)
 - As a user I want the app to build and securely save my profile (including what I did, when, reps, set, etc.)
 - As a user I want to be able to add notes or comments 
-- 
 
-***
-[Fitlist Heroku link](https://boiling-headland-53434.herokuapp.com/)
+<img width="556" alt="Screen Shot 2019-06-19 at 5 26 59 PM" src="public\images\Capture1.PNG">
+
 
